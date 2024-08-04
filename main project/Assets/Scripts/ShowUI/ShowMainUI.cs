@@ -16,7 +16,7 @@ public class ShowMainUI : MonoBehaviour
         else gameObject.SetActive(false);
     }
 
-    public void Showit()
+    public void showit()
     {
         gameObject.SetActive(true);
     }
