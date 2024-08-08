@@ -9,7 +9,6 @@ public class CameraMove : MonoBehaviour
         transform.position = new Vector3(0, 0, -10);
     }
 
-
     public void LeftMove()
     {
         if (transform.position.x > -20)
