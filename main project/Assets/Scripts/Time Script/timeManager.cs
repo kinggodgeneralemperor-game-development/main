@@ -5,16 +5,18 @@ using UnityEngine.UI;
 using TMPro;
 public class timeManager : MonoBehaviour
 {
-    public TextMeshProUGUI timeText;
-    // Start is called before the first frame update
+    public TextMeshProUGUI maintimeText;       //현재 시간 표시 텍스트
+    public TextMeshProUGUI currentGoldText;    //현재 골드 표시 텍스트
+
     void Start()
     {
-        timeText.text = string.Format("{0:0.00}", timedata.Gettime());
+        Update();
     }
 
     // Update is called once per frame
-    void Update()
+    void Update()                               //현재 상태를 업데이트 함
     {
-        timeText.text = string.Format("{0:00} : {1:00}", timedata.Gethour(),timedata.Getminute());
+        maintimeText.text = string.Format("{0:00} : {1:00}", timedata.Gethour(),timedata.Getminute());
+        currentGoldText.text = string.Format("Gold : {0:00}", GoldManager.GetcurrentGold());
     }
 }
