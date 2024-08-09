@@ -5,17 +5,20 @@ using UnityEngine;
 public class basicslime : MonoBehaviour
 {
     
-    Rigidbody2D slimeRigidbody;
-    SpriteRenderer slimespriteRenderer;
-    Sprite[] sprites;
+    public Rigidbody2D slimeRigidbody;
+    public bool boolmove;
+    public SpriteRenderer slimespriteRenderer;
+    public Sprite[] sprites;
     // Start is called before the first frame update
     void Start()
     {
+        boolmove = true;
         slimespriteRenderer = GetComponent<SpriteRenderer>();
         slimeRigidbody = GetComponent<Rigidbody2D>();
         slimeRigidbody.mass = 1;
         slimeRigidbody.drag = 4;
         slimeRigidbody.gravityScale = 0;
+        move();
     }
 
     // Update is called once per frame
@@ -23,26 +26,25 @@ public class basicslime : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            slimeRigidbody.AddForce(new Vector2(0, 1));
+            movefalse();
         }
-        if (Input.GetKey(KeyCode.S))
+        else
         {
-            slimeRigidbody.AddForce(new Vector2(0, -1));
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            slimeRigidbody.AddForce(new Vector2(-1, 0));
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            slimeRigidbody.AddForce(new Vector2(1, 0));
+            movetrue();
         }
     }
 
-    void move()
+    public static Vector2 RandomVector2(int minX, int minY, int maxX, int maxY)
     {
-        Vector2 f;
-        f = new Vector2(3, 3);
-        slimeRigidbody.AddForce(f);
+        int x = Random.Range(minX, maxX);
+        int y = Random.Range(minY, maxY);
+        int invx = Random.Range(-1, 3);
+        int invy = Random.Range(-1, 3);
+        if(invx <= 0) { x *= -1; }
+        if (invy <= 0) { y *= -1; }
+        return new Vector2(x, y);
     }
+    public virtual void move() { }
+    public void movetrue() { if (boolmove != true) { boolmove = true; move(); } }
+    public void movefalse() { if (boolmove != false) { boolmove = false; } }
 }
