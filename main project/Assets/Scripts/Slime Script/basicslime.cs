@@ -18,6 +18,7 @@ public class basicslime : MonoBehaviour
         slimeRigidbody.mass = 1;
         slimeRigidbody.drag = 4;
         slimeRigidbody.gravityScale = 0;
+
         move();
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShowMainUI : MonoBehaviour
+public class MainUI : MonoBehaviour
 {
     Transform cameraTransform;
     void Awake()
