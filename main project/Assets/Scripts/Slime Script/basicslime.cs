@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class basicslime : MonoBehaviour
+using UnityEngine.EventSystems;
+public class basicslime : MonoBehaviour, IDropHandler
 {
     
     public Rigidbody2D slimeRigidbody;
@@ -10,7 +10,7 @@ public class basicslime : MonoBehaviour
     public SpriteRenderer slimespriteRenderer;
     public Sprite[] sprites;
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         boolmove = true;
         slimespriteRenderer = GetComponent<SpriteRenderer>();
@@ -48,4 +48,8 @@ public class basicslime : MonoBehaviour
     public virtual void move() { }
     public void movetrue() { if (boolmove != true) { boolmove = true; move(); } }
     public void movefalse() { if (boolmove != false) { boolmove = false; } }
+
+    virtual public void OnDrop(PointerEventData eventData)
+    {
+    }
 }
