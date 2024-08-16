@@ -33,6 +33,7 @@ public class GroundSlime : basicslime
     }
     override public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("‡G");
+        GameObject core = Resources.Load<GameObject>("Core_2");
+        GameObject d = Instantiate(core, (Vector3)slimeRigidbody.position + Vector3.back, Quaternion.identity, GameObject.Find("Basic Canvas").transform);
     }
 }

@@ -22,7 +22,6 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         this.transform.position = eventData.position;
     }
-
     public void OnEndDrag(PointerEventData eventData)
     {
         CanvasGroup.blocksRaycasts = true;

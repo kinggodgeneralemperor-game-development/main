@@ -18,10 +18,17 @@ public class BuySlime : MonoBehaviour
         else 
         {
             GoldManager.UpdateGold(price * -1);
+            int randomslime = Random.Range(0, 4);
+            if(randomslime == 0)
+                slimepre = Resources.Load<GameObject>("Normal Slime");
+            else if (randomslime == 1)
+                slimepre = Resources.Load<GameObject>("Water Slime");
+            else if (randomslime == 2)
+                slimepre = Resources.Load<GameObject>("Ground Slime");
+            else if (randomslime == 3)
+                slimepre = Resources.Load<GameObject>("Fire Slime");
             GameObject slime = Instantiate(slimepre);
             slime.transform.position = Vector3.zero;
-            slime.transform.localScale = new Vector3(10, 10, 1);
-            slime.AddComponent<basicslime>();
         }
     }
 }

@@ -46,10 +46,8 @@ public class basicslime : MonoBehaviour, IDropHandler
         return new Vector2(x, y);
     }
     public virtual void move() { }
+    virtual public void OnDrop(PointerEventData eventData){}
     public void movetrue() { if (boolmove != true) { boolmove = true; move(); } }
     public void movefalse() { if (boolmove != false) { boolmove = false; } }
 
-    virtual public void OnDrop(PointerEventData eventData)
-    {
-    }
 }

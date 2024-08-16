@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-public class FireSlime : basicslime
+public class WaterSlime : basicslime
 {
-    public static int minX = 40;
-    public static int minY = 40;
-    public static int maxX = 90;
-    public static int maxY = 90;
-    public static int slimeId = 3;
+    public static int minX = 30;
+    public static int minY = 30;
+    public static int maxX = 60;
+    public static int maxY = 60;
+    public static int slimeId = 1;
     public static int mass = 1;
     public static int drag = 4;
     public static float minMoveTime = 0.5f;
@@ -33,7 +33,7 @@ public class FireSlime : basicslime
 
     override public void OnDrop(PointerEventData eventData)
     {
-        GameObject core = Resources.Load<GameObject>("Core_3");
+        GameObject core = Resources.Load<GameObject>("core_1");
         GameObject d = Instantiate(core, (Vector3)slimeRigidbody.position + Vector3.back, Quaternion.identity, GameObject.Find("Basic Canvas").transform);
     }
 }

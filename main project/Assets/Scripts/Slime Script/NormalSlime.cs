@@ -34,6 +34,7 @@ public class NormalSlime : basicslime
 
     override public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("³È");
+        GameObject core = Resources.Load<GameObject>("Core_0");
+        GameObject d = Instantiate(core, (Vector3)slimeRigidbody.position + Vector3.back, Quaternion.identity, GameObject.Find("Basic Canvas").transform);
     }
 }
