@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class WaterSlime : basicslime
 {
+    public float maxHungry = 100.0f;
+    public float hungryindex = 80.0f;
     public static int minX = 30;
     public static int minY = 30;
     public static int maxX = 60;
@@ -21,6 +23,19 @@ public class WaterSlime : basicslime
         slimeRigidbody.drag = drag;
         move();
     }
+    private void Update()
+    {
+        if (hungryindex > 20.0f)
+            hungryindex -= (Time.deltaTime * 2);
+        else
+            hungryindex -= Time.deltaTime;
+
+        if (hungryindex < 0)
+        {
+            Debug.Log("슬라임 하나가 농장을 탈출했습니다.");
+            Destroy(gameObject);
+        }
+    }
     override public void move()
     {
         if (boolmove == false)
@@ -33,7 +48,16 @@ public class WaterSlime : basicslime
 
     override public void OnDrop(PointerEventData eventData)
     {
-        GameObject core = Resources.Load<GameObject>("core_1");
-        GameObject d = Instantiate(core, (Vector3)slimeRigidbody.position + Vector3.back, Quaternion.identity, GameObject.Find("Basic Canvas").transform);
+        if (hungryindex < maxHungry - 20)
+        {
+            hungryindex += 20;
+            Debug.Log("냠");
+
+            GameObject core = Resources.Load<GameObject>("core_1");
+            GameObject d = Instantiate(core, (Vector3)slimeRigidbody.position + Vector3.back, Quaternion.identity, GameObject.Find("Basic Canvas").transform);
+        }
+        else Debug.Log("배부름");
+
+
     }
 }

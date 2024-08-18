@@ -104,6 +104,8 @@ MonoBehaviour:
   boolmove: 0
   slimespriteRenderer: {fileID: 0}
   sprites: []
+  maxHungry: 100
+  hungryindex: 80
 --- !u!50 &6772208327101448877
 Rigidbody2D:
   serializedVersion: 4
@@ -130,7 +132,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!60 &5610231582696272332
 PolygonCollider2D:
   m_ObjectHideFlags: 0
