@@ -11,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Slime
   - 
   - 
   - 
@@ -40,4 +40,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: button
+    uniqueID: 1715387983
+    locked: 0
+  - name: else
+    uniqueID: 3955636693
     locked: 0

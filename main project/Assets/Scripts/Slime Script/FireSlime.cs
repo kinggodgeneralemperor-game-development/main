@@ -15,7 +15,8 @@ public class FireSlime : basicslime
     public static int drag = 4;
     public static float minMoveTime = 0.5f;
     public static float maxMoveTime = 2f;
-
+    public static string slimename = "Fire Slime";
+    public static string slimeinfo = "Slime burning brightly, Don't approach it";
     private new void Start()
     {
         ((basicslime)this).Start();
@@ -54,8 +55,15 @@ public class FireSlime : basicslime
             Debug.Log("³È");
 
             GameObject core = Resources.Load<GameObject>("Core_3");
-            GameObject d = Instantiate(core, (Vector3)slimeRigidbody.position + Vector3.back, Quaternion.identity, GameObject.Find("Basic Canvas").transform);
+            GameObject d = Instantiate(core, (Vector3)slimeRigidbody.position + Vector3.back, Quaternion.identity);
         }
         else Debug.Log("¹èºÎ¸§");
+    }
+
+    public override void OnPointerClick(PointerEventData eventData)
+    {
+        SlimeUI.GetComponent<SlimeInfo>().showit();
+        SlimeUI.gameObject.GetComponent<SlimeInfo>().Editname(slimename);
+        SlimeUI.gameObject.GetComponent<SlimeInfo>().Editinfo(slimeinfo);
     }
 }

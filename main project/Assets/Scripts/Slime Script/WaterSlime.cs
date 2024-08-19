@@ -15,6 +15,8 @@ public class WaterSlime : basicslime
     public static int drag = 4;
     public static float minMoveTime = 0.5f;
     public static float maxMoveTime = 2f;
+    public static string slimename = "Water Slime";
+    public static string slimeinfo = "it has strongest surface tension";
 
     private new void Start()
     {
@@ -54,10 +56,16 @@ public class WaterSlime : basicslime
             Debug.Log("³È");
 
             GameObject core = Resources.Load<GameObject>("core_1");
-            GameObject d = Instantiate(core, (Vector3)slimeRigidbody.position + Vector3.back, Quaternion.identity, GameObject.Find("Basic Canvas").transform);
+            GameObject d = Instantiate(core, (Vector3)slimeRigidbody.position + Vector3.back, Quaternion.identity);
         }
         else Debug.Log("¹èºÎ¸§");
 
 
+    }
+    public override void OnPointerClick(PointerEventData eventData)
+    {
+        SlimeUI.GetComponent<SlimeInfo>().showit();
+        SlimeUI.gameObject.GetComponent<SlimeInfo>().Editname(slimename);
+        SlimeUI.gameObject.GetComponent<SlimeInfo>().Editinfo(slimeinfo);
     }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8529768909435395193}
   - component: {fileID: 834260764600135110}
   - component: {fileID: 4918895329620525912}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fire Slime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
