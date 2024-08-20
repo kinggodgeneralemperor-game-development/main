@@ -15,6 +15,8 @@ public class GroundSlime : basicslime
     public static int drag = 4;
     public static float minMoveTime = 2f;
     public static float maxMoveTime = 5f;
+    public static string slimename = "Ground Slime";
+    public static string slimeinfo = "the Heaviest slime in the world";
 
     private new void Start()
     {
@@ -53,8 +55,14 @@ public class GroundSlime : basicslime
             Debug.Log("³È");
 
             GameObject core = Resources.Load<GameObject>("Core_2");
-            GameObject d = Instantiate(core, (Vector3)slimeRigidbody.position + Vector3.back, Quaternion.identity, GameObject.Find("Basic Canvas").transform);
+            GameObject d = Instantiate(core, (Vector3)slimeRigidbody.position + Vector3.back, Quaternion.identity);
         }
         else Debug.Log("¹èºÎ¸§");
+    }
+    public override void OnPointerClick(PointerEventData eventData)
+    {
+        SlimeUI.GetComponent<SlimeInfo>().showit();
+        SlimeUI.gameObject.GetComponent<SlimeInfo>().Editname(slimename);
+        SlimeUI.gameObject.GetComponent<SlimeInfo>().Editinfo(slimeinfo);
     }
 }

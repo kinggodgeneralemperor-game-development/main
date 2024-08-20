@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4214000952010881560}
   - component: {fileID: 6940298003848443457}
   - component: {fileID: 88153274478219306}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground Slime
   m_TagString: Slime
   m_Icon: {fileID: 0}

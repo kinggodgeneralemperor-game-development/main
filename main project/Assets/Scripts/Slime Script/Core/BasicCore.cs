@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class BasicCore : MonoBehaviour
+public abstract class BasicCore : MonoBehaviour
 {
     public Rigidbody2D coreRigidbody;
     public void Awake()
@@ -23,5 +23,5 @@ public class BasicCore : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    public virtual void CoreClick() { }
+    public abstract void CoreClick();
 }
