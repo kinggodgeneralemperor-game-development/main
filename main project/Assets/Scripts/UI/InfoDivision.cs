@@ -12,7 +12,7 @@ public class InfoDivision : MonoBehaviour
     {
         image = GetComponent<Image>();
     }
-    public  void ChangeColor()
+    public void ChangeColor()
     {
         if (Isclick == true)
         {
