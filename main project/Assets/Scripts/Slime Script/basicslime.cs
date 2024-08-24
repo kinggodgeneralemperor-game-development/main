@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
     
@@ -10,6 +11,7 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
     public SpriteRenderer slimespriteRenderer;
     public Sprite[] sprites;
     public static GameObject SlimeUI;
+    public Slider hungryslider;
     // Start is called before the first frame update
     public void Start()
     {
@@ -26,14 +28,6 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
-        {
-            movefalse();
-        }
-        else
-        {
-            movetrue();
-        }
     }
 
     public static Vector2 RandomVector2(int minX, int minY, int maxX, int maxY)

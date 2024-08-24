@@ -6,7 +6,6 @@ public class FireSlimeCore : BasicCore, IPointerClickHandler
 {
     public override void CoreClick()
     {
-        Debug.Log("fff");
         Destroy(this.gameObject);
         GoldManager.UpdateGold(10);
     }

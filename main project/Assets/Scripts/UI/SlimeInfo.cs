@@ -7,10 +7,8 @@ public class SlimeInfo : MonoBehaviour
 {
     public TextMeshProUGUI NameText;
     public TextMeshProUGUI InfoText;
-    int k;
     public void Start()
     {
-        k = 0;
         NameText = transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         InfoText = transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
         gameObject.SetActive(false);
