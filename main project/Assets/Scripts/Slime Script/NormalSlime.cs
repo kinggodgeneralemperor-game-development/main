@@ -45,6 +45,7 @@ public class NormalSlime : basicslime
             return;
         Vector2 f;
         f = RandomVector2(minX, minY, maxX, maxY);
+        DoAnimation(f);
         slimeRigidbody.AddForce(f);
         Invoke("move", Random.Range(1f, 3f));
     }

@@ -188,9 +188,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a719f3c925e67c49b76a94b8f20b85f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angleIndex: 30
   slimeRigidbody: {fileID: 0}
   boolmove: 0
   slimespriteRenderer: {fileID: 0}
-  sprites: []
+  sprites:
+  - {fileID: -164423435, guid: ef6d658654c53d540a7dc866a582fae5, type: 3}
+  - {fileID: -1160327843, guid: ef6d658654c53d540a7dc866a582fae5, type: 3}
+  - {fileID: -1264300992, guid: ef6d658654c53d540a7dc866a582fae5, type: 3}
+  - {fileID: 1312500450, guid: ef6d658654c53d540a7dc866a582fae5, type: 3}
+  - {fileID: 683293926, guid: ef6d658654c53d540a7dc866a582fae5, type: 3}
+  - {fileID: 765386792, guid: ef6d658654c53d540a7dc866a582fae5, type: 3}
   maxHungry: 100
   hungryindex: 80

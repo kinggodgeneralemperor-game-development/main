@@ -100,10 +100,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 327ea74f4bd66b24f85ff04b602cc218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angleIndex: 30
   slimeRigidbody: {fileID: 0}
   boolmove: 0
   slimespriteRenderer: {fileID: 0}
-  sprites: []
+  sprites:
+  - {fileID: -929587723, guid: 2516322f223b9f844bff43fab68e5faa, type: 3}
+  - {fileID: -790576258, guid: 2516322f223b9f844bff43fab68e5faa, type: 3}
+  - {fileID: 510533485, guid: 2516322f223b9f844bff43fab68e5faa, type: 3}
+  - {fileID: 1019050965, guid: 2516322f223b9f844bff43fab68e5faa, type: 3}
+  - {fileID: -1753182201, guid: 2516322f223b9f844bff43fab68e5faa, type: 3}
+  - {fileID: 1922713963, guid: 2516322f223b9f844bff43fab68e5faa, type: 3}
   maxHungry: 100
   hungryindex: 80
 --- !u!50 &6772208327101448877
