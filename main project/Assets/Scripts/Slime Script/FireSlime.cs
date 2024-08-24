@@ -26,6 +26,7 @@ public class FireSlime : basicslime
     }
     private void Update()
     {
+        hungryslider.value = hungryindex / maxHungry;
         if (hungryindex > 20.0f)
             hungryindex -= (Time.deltaTime * 2);
         else
