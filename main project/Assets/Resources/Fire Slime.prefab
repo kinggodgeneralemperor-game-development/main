@@ -382,9 +382,9 @@ MonoBehaviour:
   - {fileID: 68410378, guid: 11ad43de35cb67246972e96651931243, type: 3}
   - {fileID: 1874723744, guid: 11ad43de35cb67246972e96651931243, type: 3}
   - {fileID: -144955014, guid: 11ad43de35cb67246972e96651931243, type: 3}
+  hungryslider: {fileID: 5443368557342088163}
   maxHungry: 100
   hungryindex: 80
-  hungryslider: {fileID: 5443368557342088163}
 --- !u!50 &8529768909435395193
 Rigidbody2D:
   serializedVersion: 4
