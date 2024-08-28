@@ -7,7 +7,8 @@ public class SlimeManager : MonoBehaviour
     public static List<GameObject> SlimeList;
     public void Start()
     {
-        SlimeList = new List<GameObject>();
+        if(SlimeList == null)
+            SlimeList = new List<GameObject>();
     }
 
     public static GameObject randomSlime()
@@ -37,15 +38,20 @@ public class SlimeManager : MonoBehaviour
     public void Update()
     {
         Debug.Log(SlimeList.Count);
-        for(int i = SlimeList.Count; i > 0; i--)
-        {
-            if (SlimeList[i - 1] == null)
-                SlimeList.RemoveAt(i - 1);
-        }
+        RemoveEmpty();
     }
 
     public static int GetSlimeNumber()
     {
         return SlimeList.Count;
+    }
+    public static void RemoveEmpty()
+    {
+        Debug.Log(SlimeList.Count);
+        for (int i = SlimeList.Count; i > 0; i--)
+        {
+            if (SlimeList[i - 1] == null)
+                SlimeList.RemoveAt(i - 1);
+        }
     }
 }

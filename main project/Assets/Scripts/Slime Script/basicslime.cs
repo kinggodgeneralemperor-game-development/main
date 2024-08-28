@@ -6,6 +6,17 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
+    public int minX;
+    public int minY;
+    public int maxX;
+    public int maxY;
+    public float minMoveTime;
+    public float maxMoveTime;
+    public int slimeId;
+    public int mass;
+    public int drag;
+    public float maxHungry;
+    public float hungryindex;
     public float angleIndex = 30.0f;    
     public Rigidbody2D slimeRigidbody;
     public bool boolmove;
@@ -13,6 +24,9 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
     public Sprite[] sprites;
     public static GameObject SlimeUI;
     public Slider hungryslider;
+    public GameObject core;
+    public string slimename;
+    public string slimeinfo;
     // Start is called before the first frame update
     public void Start()
     {
@@ -29,6 +43,17 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
     // Update is called once per frame
     void Update()
     {
+        hungryslider.value = hungryindex / maxHungry;
+        if (hungryindex > 20.0f)
+            hungryindex -= (Time.deltaTime * 2);
+        else
+            hungryindex -= Time.deltaTime;
+
+        if (hungryindex < 0)
+        {
+            Debug.Log("슬라임 하나가 농장을 탈출했습니다.");
+            Destroy(gameObject);
+        }
     }
 
 
@@ -71,10 +96,40 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
 
         return new Vector2(x, y);
     }
-    public abstract void OnDrop(PointerEventData eventData);
+    public void OnDrop(PointerEventData eventData)
+    {
+        if (eventData.pointerDrag.tag != "Food")
+            return;
+        if (hungryindex < maxHungry - 20)
+        {
+            hungryindex += 20;
+            Debug.Log("냠");
+
+            GameObject d = Instantiate(core, (Vector3)slimeRigidbody.position + Vector3.back, Quaternion.identity);
+        }
+        else Debug.Log("배부름");
+    }
     public void movetrue() { if (boolmove != true) { boolmove = true; move(); } }
     public void movefalse() { if (boolmove != false) { boolmove = false; } }
 
-    public abstract void move();
-    public abstract void OnPointerClick(PointerEventData eventData);
+    public void move()
+    {
+        if (boolmove == false)
+            return;
+        Vector2 f;
+        f = RandomVector2(minX, minY, maxX, maxY);
+        DoAnimation(f);
+        slimeRigidbody.AddForce(f);
+        Invoke("move", UnityEngine.Random.Range(minMoveTime, maxMoveTime));
+    }
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        SlimeUI.GetComponent<SlimeInfo>().showit();
+        SlimeUI.gameObject.GetComponent<SlimeInfo>().Editname(slimename);
+        SlimeUI.gameObject.GetComponent<SlimeInfo>().Editinfo(slimeinfo);
+    }
+    private void OnDestroy()
+    {
+        SlimeManager.RemoveEmpty();
+    }
 }
