@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class SlimeManager : MonoBehaviour
 {
     public static List<GameObject> SlimeList;
     public void Start()
     {
-        if(SlimeList == null)
+
+        if (SlimeList == null)
             SlimeList = new List<GameObject>();
     }
 
@@ -30,13 +31,19 @@ public class SlimeManager : MonoBehaviour
         GameObject slime = Instantiate(randomSlime());
         slime.transform.position = Vector3.zero;
         SlimeList.Add(slime);
+
+        Slider slider = Resources.Load<Slider>("Slider");
+        basicslime script = slime.GetComponent<basicslime>();
+        slider = Instantiate(slider, slime.transform.position, Quaternion.identity, GameObject.Find("Hungry Canvas").GetComponent<RectTransform>());
+        script.hungryslider = slider;
+        script.sliderRectTransform = slider.GetComponent<RectTransform>();
     }
     public void OnClick()
     {
         Debug.Log("aa");
     }
     public void Update()
-    {
+    { 
         Debug.Log(SlimeList.Count);
         RemoveEmpty();
     }

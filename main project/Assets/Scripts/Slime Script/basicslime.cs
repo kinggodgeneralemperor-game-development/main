@@ -24,6 +24,7 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
     public Sprite[] sprites;
     public static GameObject SlimeUI;
     public Slider hungryslider;
+    public RectTransform sliderRectTransform;
     public GameObject core;
     public string slimename;
     public string slimeinfo;
@@ -37,6 +38,7 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
         slimeRigidbody.mass = 1;
         slimeRigidbody.drag = 4;
         slimeRigidbody.gravityScale = 0;
+
         move();
     }
 
@@ -44,6 +46,9 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
     void Update()
     {
         hungryslider.value = hungryindex / maxHungry;
+        float slimeX = (float)Screen.width / 2 + gameObject.transform.position.x * (float)Screen.width / 2 / 9;
+        float slimeY = (float)Screen.height / 2 + gameObject.transform.position.y * (float)Screen.height / 2 / 5 + 80;
+        sliderRectTransform.position = new Vector2(slimeX, slimeY);
         if (hungryindex > 20.0f)
             hungryindex -= (Time.deltaTime * 2);
         else
