@@ -6,33 +6,50 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
+    //최대 최소 움직임
     public int minX;
     public int minY;
     public int maxX;
     public int maxY;
+
+    //움직임 이후 경직 시간
     public float minMoveTime;
     public float maxMoveTime;
+
+    //슬라임 정보
     public int slimeId;
     public int mass;
     public int drag;
     public float maxHungry;
     public float hungryindex;
-    public float angleIndex = 30.0f;    
+
+    //기본 정보
     public Rigidbody2D slimeRigidbody;
-    public bool boolmove;
     public SpriteRenderer slimespriteRenderer;
-    public Sprite[] sprites;
-    public static GameObject SlimeUI;
-    public Slider hungryslider;
     public RectTransform sliderRectTransform;
+
+    //temp
+    public bool boolmove;
+
+    //애니메이션
+    public Sprite[] sprites;
+    public float angleIndex;
+
+    //슬라임 코어
     public GameObject core;
+
+    //배고픔 슬라이더
+    public Slider hungryslider;
+
+    //슬라임 문자열 데이터
+    public static GameObject SlimeUI;
     public string slimename;
     public string slimeinfo;
-    // Start is called before the first frame update
     public void Start()
     {
         SlimeUI = GameObject.Find("Main Canvas").transform.Find("SlimeInfo").gameObject;
         boolmove = true;
+        angleIndex = 30.0f;
         slimespriteRenderer = GetComponent<SpriteRenderer>();
         slimeRigidbody = GetComponent<Rigidbody2D>();
         slimeRigidbody.mass = 1;
@@ -42,18 +59,22 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
         move();
     }
 
-    // Update is called once per frame
     void Update()
     {
         hungryslider.value = hungryindex / maxHungry;
+        
+        //Slider UI 위치 변경
         float slimeX = (float)Screen.width / 2 + gameObject.transform.position.x * (float)Screen.width / 2 / 9;
         float slimeY = (float)Screen.height / 2 + gameObject.transform.position.y * (float)Screen.height / 2 / 5 + 80;
         sliderRectTransform.position = new Vector2(slimeX, slimeY);
+        
+        //배고픔 요소 쿨타임
         if (hungryindex > 20.0f)
             hungryindex -= (Time.deltaTime * 2);
         else
             hungryindex -= Time.deltaTime;
 
+        //농장 탈출 (TEMP)
         if (hungryindex < 0)
         {
             Debug.Log("슬라임 하나가 농장을 탈출했습니다.");
@@ -101,33 +122,41 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
 
         return new Vector2(x, y);
     }
-    public void OnDrop(PointerEventData eventData)
+    public void OnDrop(PointerEventData eventData)      //슬라임 먹이 주기
     {
-        if (eventData.pointerDrag.tag != "Food")
-            return;
+        if (eventData.pointerDrag.tag != "Food") return;
         if (hungryindex < maxHungry - 20)
         {
             hungryindex += 20;
             Debug.Log("냠");
 
-            GameObject d = Instantiate(core, (Vector3)slimeRigidbody.position + Vector3.back, Quaternion.identity);
+            GameObject preCore = Instantiate(core, (Vector3)slimeRigidbody.position + Vector3.back, Quaternion.identity);
         }
         else Debug.Log("배부름");
     }
+
+    //temp
     public void movetrue() { if (boolmove != true) { boolmove = true; move(); } }
     public void movefalse() { if (boolmove != false) { boolmove = false; } }
 
     public void move()
     {
-        if (boolmove == false)
-            return;
+        if (boolmove == false) return;
+
+        //force 정의
         Vector2 f;
         f = RandomVector2(minX, minY, maxX, maxY);
+        
+        //force의 vector값에 따른 애니메이션
         DoAnimation(f);
+        
+        //AddForce
         slimeRigidbody.AddForce(f);
+        
+        //반복
         Invoke("move", UnityEngine.Random.Range(minMoveTime, maxMoveTime));
     }
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)      //슬라임 클릭 시 정보UI 생성
     {
         SlimeUI.GetComponent<SlimeInfo>().showit();
         SlimeUI.gameObject.GetComponent<SlimeInfo>().Editname(slimename);

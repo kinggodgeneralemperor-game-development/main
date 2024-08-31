@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
-public class SlimeInfo : MonoBehaviour
+public class SlimeInfo : BasicUI
 {
     public TextMeshProUGUI NameText;
     public TextMeshProUGUI InfoText;
@@ -22,15 +22,5 @@ public class SlimeInfo : MonoBehaviour
     public void Editinfo(string input)
     {
         InfoText.text = string.Format(input);
-    }
-    public void showit()
-    {
-        gameObject.SetActive(true);
-    }
-    public void hideit()
-    {
-        gameObject.SetActive(false);
-    }
-
-    
+    }    
 }

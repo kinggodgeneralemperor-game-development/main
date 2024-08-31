@@ -7,12 +7,11 @@ public class SlimeManager : MonoBehaviour
     public static List<GameObject> SlimeList;
     public void Start()
     {
-
         if (SlimeList == null)
             SlimeList = new List<GameObject>();
     }
 
-    public static GameObject randomSlime()
+    public static GameObject RandomSlime()
     {
         GameObject slimepre = null;
         int randomslime = Random.Range(0, 4);
@@ -26,9 +25,9 @@ public class SlimeManager : MonoBehaviour
             slimepre = Resources.Load<GameObject>("Fire Slime");
         return slimepre;
     }
-    public void addSlime()
+    public void AddSlime()
     {
-        GameObject slime = Instantiate(randomSlime());
+        GameObject slime = Instantiate(RandomSlime());
         slime.transform.position = Vector3.zero;
         SlimeList.Add(slime);
 

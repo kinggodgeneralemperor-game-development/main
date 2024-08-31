@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Temp File
 public class HungryIndex : MonoBehaviour
 {
     [SerializeField] GameObject S_goPrefab = null;

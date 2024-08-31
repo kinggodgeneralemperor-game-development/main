@@ -18,5 +18,4 @@ public class WaterSlime : basicslime
         slimeRigidbody.drag = drag;
         move();
     }
-
 }

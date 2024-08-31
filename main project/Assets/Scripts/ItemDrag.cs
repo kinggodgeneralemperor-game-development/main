@@ -9,7 +9,7 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public static CanvasGroup CanvasGroup;
     Vector3 startposition;
     private void Awake()
-    { 
+    {
         CanvasGroup = GetComponent<CanvasGroup>();
     }
     public void OnBeginDrag(PointerEventData eventData)

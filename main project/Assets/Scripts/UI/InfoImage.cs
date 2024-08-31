@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Info UI Sprite Array
 public class InfoImage : MonoBehaviour
 {
     public Sprite[] slime;
@@ -12,6 +13,4 @@ public class InfoImage : MonoBehaviour
     {
         infoimage = GetComponent<Image>();
     }
-
-    
 }

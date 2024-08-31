@@ -13,16 +13,20 @@ public class BuySlime : MonoBehaviour
     {
         SlimeManager = GameObject.Find("SlimeManager");
     }
+
+    //구매 버튼 클릭 시, 골드 체크 및 슬라임 소환
     public void CheckGold()
     {
         if(price > GoldManager.GetcurrentGold())
         {
-           errorUI.SetActive(true);
+            //골드 부족 정보창
+            errorUI.SetActive(true);
         }
         else 
         {
+            //슬라임 소환 및 골드 소모
             GoldManager.UpdateGold(price * -1);
-            SlimeManager.GetComponent<SlimeManager>().addSlime();
+            SlimeManager.GetComponent<SlimeManager>().AddSlime();
         }
     }
 }

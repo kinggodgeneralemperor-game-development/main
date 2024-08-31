@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class GroundSlime : basicslime
 {
-
     private new void Start()
     {
         ((basicslime)this).Start();

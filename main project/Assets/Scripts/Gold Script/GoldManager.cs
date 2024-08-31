@@ -5,7 +5,6 @@ using UnityEngine;
 public class GoldManager : MonoBehaviour
 {
     private static int currentGold;
-    // Start is called before the first frame update
     void Start()        //currentGold를 세이브파일 따라서 바꾸기
     {
         currentGold = 100;

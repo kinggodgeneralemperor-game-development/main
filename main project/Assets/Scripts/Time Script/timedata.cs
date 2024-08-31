@@ -9,17 +9,14 @@ public class timedata : MonoBehaviour
     static int hour;
     static double minute;
     static int day;
-    // Start is called before the first frame update
-    void Start()        //time, hour, minute는 세이브 파일 따라서 바꾸기
+    void Start()                    //time, hour, minute는 세이브 파일 따라서 바꾸기
     {
         prevtime = 0;
         hour = 0;
         minute = 0;
         day = 0;
-        Update();
     }
 
-    // Update is called once per frame
     void Update()
     {
         minute += (double)Time.time - prevtime;
