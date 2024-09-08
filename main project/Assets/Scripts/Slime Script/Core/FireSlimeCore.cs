@@ -2,16 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-public class FireSlimeCore : BasicCore, IPointerClickHandler
+public class FireSlimeCore : BasicCore
 {
-    public override void CoreClick()
+    private void Start()
     {
-        Destroy(this.gameObject);
-        GoldManager.UpdateGold(10);
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        CoreClick();
+        corePrice = 10;
     }
 }

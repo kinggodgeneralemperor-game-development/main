@@ -3,15 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 public class WaterSlimeCore : BasicCore, IPointerClickHandler
-{
-    public override void CoreClick()
+{   
+    private void Start()
     {
-        Destroy(this.gameObject);
-        GoldManager.UpdateGold(10);
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        CoreClick();
+        corePrice = 10;
     }
 }

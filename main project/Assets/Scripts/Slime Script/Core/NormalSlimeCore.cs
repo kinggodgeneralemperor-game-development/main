@@ -4,14 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class NormalSlimeCore : BasicCore, IPointerClickHandler
 {
-    public override void CoreClick()
+    private void Start()
     {
-        Destroy(this.gameObject);
-        GoldManager.UpdateGold(5);
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        CoreClick();
+        corePrice = 5;
     }
 }

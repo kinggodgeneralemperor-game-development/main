@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public abstract class BasicCore : MonoBehaviour
+using UnityEngine.EventSystems;
+
+public abstract class BasicCore : MonoBehaviour, IPointerClickHandler
 {
     public Rigidbody2D coreRigidbody;
+    public int corePrice;
     public void Awake()
     {
         coreRigidbody = GetComponent<Rigidbody2D>();
@@ -23,5 +26,13 @@ public abstract class BasicCore : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    public abstract void CoreClick();
+    public void CoreClick()
+    {
+        Destroy(this.gameObject);
+        GoldManager.UpdateGold(corePrice);
+    }
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        CoreClick();
+    }
 }

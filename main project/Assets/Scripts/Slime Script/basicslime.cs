@@ -55,7 +55,6 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
         slimeRigidbody.mass = 1;
         slimeRigidbody.drag = 4;
         slimeRigidbody.gravityScale = 0;
-
         move();
     }
 
@@ -164,6 +163,5 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
     }
     private void OnDestroy()
     {
-        SlimeManager.RemoveEmpty();
     }
 }
