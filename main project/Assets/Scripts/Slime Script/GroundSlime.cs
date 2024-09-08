@@ -13,6 +13,11 @@ public class GroundSlime : basicslime
         maxHungry = 100.0f; 
         minX = 10; minY = 10; maxX = 40; maxY = 40; minMoveTime = 2f; maxMoveTime = 5f;
         slimeId = 2; mass = 1; drag = 4;
+        scale = 30;
+
+        //슬라임 캔버스 크기 조정
+        slimeCanvasRectTransform.sizeDelta = new Vector2(scale, scale);
+
         core = Resources.Load<GameObject>("Core_2");
         slimeRigidbody.mass = mass;
         slimeRigidbody.drag = drag;

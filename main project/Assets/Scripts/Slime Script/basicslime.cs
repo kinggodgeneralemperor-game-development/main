@@ -22,12 +22,14 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
     public int drag;
     public float maxHungry;
     public float hungryindex;
-
+    public float scale;
     //기본 정보
     public Rigidbody2D slimeRigidbody;
     public SpriteRenderer slimespriteRenderer;
-    public RectTransform sliderRectTransform;
-
+    public RectTransform levelsliderRectTransform;
+    public RectTransform hungrysliderRectTransform;
+    public RectTransform slimeCanvasRectTransform;
+    public Canvas slimeCanvas;
     //temp
     public bool boolmove;
 
@@ -38,8 +40,9 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
     //슬라임 코어
     public GameObject core;
 
-    //배고픔 슬라이더
-    public Slider hungryslider;
+    //슬라이더
+    public Image hungryslider;
+    public Slider levelSlider;
 
     //슬라임 문자열 데이터
     public static GameObject SlimeUI;
@@ -55,18 +58,41 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
         slimeRigidbody.mass = 1;
         slimeRigidbody.drag = 4;
         slimeRigidbody.gravityScale = 0;
+
+        //슬라임 배고픔 슬라이더 추가
+        hungryslider = Resources.Load<Image>("HungrySlider");
+        slimeCanvas = Resources.Load<Canvas>("SlimeCanvas");
+        levelSlider = Resources.Load<Slider>("LevelSlider");
+
+        levelSlider = Instantiate(levelSlider);
+        slimeCanvas = Instantiate(slimeCanvas);
+        hungryslider = Instantiate(hungryslider);
+
+        slimeCanvas.transform.SetParent(gameObject.transform);
+        hungryslider.transform.SetParent(slimeCanvas.transform);
+        levelSlider.transform.SetParent(slimeCanvas.transform);
+
+        //RectTransform 가져오기
+        slimeCanvasRectTransform = slimeCanvas.GetComponent<RectTransform>();
+        levelsliderRectTransform = levelSlider.GetComponent<RectTransform>();
+        hungrysliderRectTransform = hungryslider.GetComponent<RectTransform>();
+
+        //RectTransform 수정
+        levelsliderRectTransform.anchoredPosition = new Vector2(0, 0);
+        hungrysliderRectTransform.anchoredPosition = new Vector2(0, 0);
         move();
     }
 
     void Update()
     {
-        hungryslider.value = hungryindex / maxHungry;
+        hungryslider.fillAmount = hungryindex / maxHungry;
         
         //Slider UI 위치 변경
+        /*
         float slimeX = (float)Screen.width / 2 + gameObject.transform.position.x * (float)Screen.width / 2 / 9;
         float slimeY = (float)Screen.height / 2 + gameObject.transform.position.y * (float)Screen.height / 2 / 5 + 80;
         sliderRectTransform.position = new Vector2(slimeX, slimeY);
-        
+        */
         //배고픔 요소 쿨타임
         if (hungryindex > 20.0f)
             hungryindex -= (Time.deltaTime * 2);

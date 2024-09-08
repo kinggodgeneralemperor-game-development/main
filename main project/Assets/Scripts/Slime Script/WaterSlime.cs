@@ -13,6 +13,11 @@ public class WaterSlime : basicslime
         maxHungry = 100.0f;
         minX = 30; minY = 30; maxX = 60; maxY = 60; minMoveTime = 0.5f; maxMoveTime = 2f;
         slimeId = 1; mass = 1; drag = 4;
+        scale = 15;
+
+        //슬라임 캔버스 크기 조정
+        slimeCanvasRectTransform.sizeDelta = new Vector2(scale, scale);
+
         core = Resources.Load<GameObject>("Core_1");
         slimeRigidbody.mass = mass;
         slimeRigidbody.drag = drag;

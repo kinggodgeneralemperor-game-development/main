@@ -31,11 +31,6 @@ public class SlimeManager : MonoBehaviour
         slime.transform.position = Vector3.zero;
         SlimeList.Add(slime);
 
-        Slider slider = Resources.Load<Slider>("Slider");
-        basicslime script = slime.GetComponent<basicslime>();
-        slider = Instantiate(slider, slime.transform.position, Quaternion.identity, GameObject.Find("Hungry Canvas").GetComponent<RectTransform>());
-        script.hungryslider = slider;
-        script.sliderRectTransform = slider.GetComponent<RectTransform>();
     }
     public void OnClick()
     {
