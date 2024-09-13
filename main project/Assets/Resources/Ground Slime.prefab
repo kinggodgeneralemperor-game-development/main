@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1283, y: -720, z: 0}
-  m_LocalScale: {x: 30, y: 30, z: 1}
+  m_LocalScale: {x: 20, y: 20, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -111,9 +111,12 @@ MonoBehaviour:
   drag: 0
   maxHungry: 100
   hungryindex: 80
+  scale: 0
   slimeRigidbody: {fileID: 0}
   slimespriteRenderer: {fileID: 0}
-  sliderRectTransform: {fileID: 0}
+  levelsliderRectTransform: {fileID: 0}
+  hungrysliderRectTransform: {fileID: 0}
+  slimeCanvasRectTransform: {fileID: 0}
   slimeCanvas: {fileID: 0}
   boolmove: 0
   sprites:
@@ -126,6 +129,7 @@ MonoBehaviour:
   angleIndex: 30
   core: {fileID: 0}
   hungryslider: {fileID: 0}
+  levelSlider: {fileID: 0}
   slimename: 
   slimeinfo: 
 --- !u!50 &4214000952010881560
