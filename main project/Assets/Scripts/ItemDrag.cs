@@ -7,7 +7,17 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 {
     public static GameObject DraggedIcon;
     public static CanvasGroup CanvasGroup;
+    public int expPoint;
+    public int hungryPoint;
+    public Sprite foodSprite;
+
     Vector3 startposition;
+
+    private void Start()
+    {
+        expPoint = 5;
+        hungryPoint = 10;
+    }
     private void Awake()
     {
         CanvasGroup = GetComponent<CanvasGroup>();

@@ -22,6 +22,8 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
     public int drag;
     public float maxHungry;
     public float hungryindex;
+    public int level;
+    public int exp;
     public float scale;
     //기본 정보
     public Rigidbody2D slimeRigidbody;
@@ -50,6 +52,7 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
     public string slimeinfo;
     public void Start()
     {
+        //슬라임 객체 값 초기화
         SlimeUI = GameObject.Find("Main Canvas").transform.Find("SlimeInfo").gameObject;
         boolmove = true;
         angleIndex = 30.0f;
@@ -58,6 +61,9 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
         slimeRigidbody.mass = 1;
         slimeRigidbody.drag = 4;
         slimeRigidbody.gravityScale = 0;
+        hungryindex = 80;
+        level = 0;
+        exp = 0;
 
         //슬라임 배고픔 슬라이더 추가
         hungryslider = Resources.Load<Image>("HungrySlider");
@@ -86,7 +92,7 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
     void Update()
     {
         hungryslider.fillAmount = hungryindex / maxHungry;
-        
+        levelSlider.value = exp;
         //Slider UI 위치 변경
         /*
         float slimeX = (float)Screen.width / 2 + gameObject.transform.position.x * (float)Screen.width / 2 / 9;
@@ -150,11 +156,13 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
     public void OnDrop(PointerEventData eventData)      //슬라임 먹이 주기
     {
         if (eventData.pointerDrag.tag != "Food") return;
-        if (hungryindex < maxHungry - 20)
-        {
-            hungryindex += 20;
-            Debug.Log("냠");
 
+        ItemDrag input = eventData.pointerDrag.GetComponent<ItemDrag>();
+        if (hungryindex < maxHungry - input.hungryPoint)
+        {
+            hungryindex += input.hungryPoint;
+            Debug.Log("냠");
+            exp += input.expPoint;
             GameObject preCore = Instantiate(core, (Vector3)slimeRigidbody.position + Vector3.back, Quaternion.identity);
         }
         else Debug.Log("배부름");
@@ -186,6 +194,8 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
         SlimeUI.GetComponent<SlimeInfo>().showit();
         SlimeUI.gameObject.GetComponent<SlimeInfo>().Editname(slimename);
         SlimeUI.gameObject.GetComponent<SlimeInfo>().Editinfo(slimeinfo);
+        SlimeUI.gameObject.GetComponent<SlimeInfo>().Editlevel(level);
+        SlimeUI.gameObject.GetComponent<SlimeInfo>().EditSprite(sprites[2]);
     }
     private void OnDestroy()
     {
