@@ -6,6 +6,7 @@ public class GroundSlime : basicslime
 {
     private new void Start()
     {
+        /*
         ((basicslime)this).Start();
         slimename = "Ground Slime";
         slimeinfo = "the Heaviest slime in the world";
@@ -22,5 +23,6 @@ public class GroundSlime : basicslime
         slimeRigidbody.mass = mass;
         slimeRigidbody.drag = drag;
         move();
+        */
     }
 }

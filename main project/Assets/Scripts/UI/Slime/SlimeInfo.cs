@@ -35,14 +35,14 @@ public class SlimeInfo : BasicUI
     {
         if (gObj)
         {
-            NameText.text = string.Format(gObjS.slimename);
-            InfoText.text = string.Format(gObjS.slimeinfo);
+            NameText.text = string.Format(gObjS.SO.Slimename);
+            InfoText.text = string.Format(gObjS.SO.Slimeinfo);
             LevelText.text = string.Format("Level : " + gObjS.level);
-            InfoSprite.sprite = gObjS.sprites[2];
+            InfoSprite.sprite = gObjS.SO.Sprites[2];
             LevelSlider.value = gObjS.exp;
             ExpText.text = string.Format(gObjS.exp + " / " + gObjS.maxexp);
             HungrySlider.fillAmount = gObjS.hungryslider.fillAmount;
-            HungryText.text = string.Format("Hungry : {0:0.0} / {1:0}", gObjS.hungryindex, gObjS.maxHungry);
+            HungryText.text = string.Format("Hungry : {0:0.0} / {1:0}", gObjS.hungryindex, gObjS.SO.MaxHungry);
         }
         else
             hideit();

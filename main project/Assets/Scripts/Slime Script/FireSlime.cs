@@ -6,6 +6,7 @@ public class FireSlime : basicslime
 {
     private new void Start()
     {
+        /*
         ((basicslime)this).Start();
         slimename = "Fire Slime";
         slimeinfo = "Slime burning brightly, Don't approach it";
@@ -22,5 +23,6 @@ public class FireSlime : basicslime
         slimeRigidbody.mass = mass;
         slimeRigidbody.drag = drag;
         move();
+        */
     }
 }

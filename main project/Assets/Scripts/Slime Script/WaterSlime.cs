@@ -6,6 +6,7 @@ public class WaterSlime : basicslime
 {
     private new void Start()
     {
+        /*
         ((basicslime)this).Start();
         slimename = "Water Slime";
         slimeinfo = "it has strongest surface tension";
@@ -22,5 +23,6 @@ public class WaterSlime : basicslime
         slimeRigidbody.mass = mass;
         slimeRigidbody.drag = drag;
         move();
+        */
     }
 }

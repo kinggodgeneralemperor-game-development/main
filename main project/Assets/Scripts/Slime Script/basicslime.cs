@@ -4,29 +4,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
+public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
+    public SlimeSO SO;
     //최대 최소 움직임
-    public int minX;
-    public int minY;
-    public int maxX;
-    public int maxY;
+    // minX, minY, maxX, maxY;
 
     //움직임 이후 경직 시간
-    public float minMoveTime;
-    public float maxMoveTime;
+    //minMoveTime, maxMoveTime;
 
     //슬라임 정보
-    public int slimeId;
-    public int mass;
-    public int drag;
-    public float maxHungry;
     public float hungryindex;
     public int level;
     public int exp;
     public int maxexp;
-    public float scale;
     //기본 정보
+    //slimeid, mass, drag, maxHungry, scale, slimename, slimeinfo
     public Rigidbody2D slimeRigidbody;
     public SpriteRenderer slimespriteRenderer;
     public RectTransform levelsliderRectTransform;
@@ -40,37 +33,36 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
     public Sprite[] sprites;
     public float angleIndex;
 
-    //슬라임 코어
-    public GameObject core;
-
     //슬라이더
     public Image hungryslider;
     public Slider levelSlider;
 
+    //슬라임 기본 코어
+    public GameObject corePrefab;
+
     //슬라임 문자열 데이터
     public static GameObject SlimeUI;
-    public string slimename;
-    public string slimeinfo;
     public void Start()
     {
         //슬라임 객체 값 초기화
         SlimeUI = GameObject.Find("Main Canvas").transform.Find("SlimeInfo").gameObject;
         boolmove = true;
-        angleIndex = 30.0f;
+        angleIndex = SO.AngleIndex;
         slimespriteRenderer = GetComponent<SpriteRenderer>();
         slimeRigidbody = GetComponent<Rigidbody2D>();
-        slimeRigidbody.mass = 1;
-        slimeRigidbody.drag = 4;
+        slimeRigidbody.mass = SO.Mass;
+        slimeRigidbody.drag = SO.Drag;
         slimeRigidbody.gravityScale = 0;
         hungryindex = 80;
         level = 0;
         maxexp = 100;
         exp = 0;
 
+
         //슬라임 배고픔 슬라이더 추가
-        hungryslider = Resources.Load<Image>("HungrySlider");
+        hungryslider = SO.Hungryslider;
         slimeCanvas = Resources.Load<Canvas>("SlimeCanvas");
-        levelSlider = Resources.Load<Slider>("LevelSlider");
+        levelSlider = SO.LevelSlider;
 
         levelSlider = Instantiate(levelSlider);
         slimeCanvas = Instantiate(slimeCanvas);
@@ -85,23 +77,22 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
         levelsliderRectTransform = levelSlider.GetComponent<RectTransform>();
         hungrysliderRectTransform = hungryslider.GetComponent<RectTransform>();
 
+        //슬라임 크기 조정
+        gameObject.transform.localScale = new Vector2(SO.Scale, SO.Scale);
+
         //RectTransform 수정
         levelsliderRectTransform.anchoredPosition = new Vector2(0, 0);
         hungrysliderRectTransform.anchoredPosition = new Vector2(0, 0);
+
         move();
     }
 
     void Update()
     {
-        hungryslider.fillAmount = hungryindex / maxHungry;
+        gameObject.transform.localScale = new Vector2(SO.Scale, SO.Scale);
+        hungryslider.fillAmount = hungryindex / SO.MaxHungry;
         levelSlider.maxValue = maxexp;
         levelSlider.value = exp;
-        //Slider UI 위치 변경
-        /*
-        float slimeX = (float)Screen.width / 2 + gameObject.transform.position.x * (float)Screen.width / 2 / 9;
-        float slimeY = (float)Screen.height / 2 + gameObject.transform.position.y * (float)Screen.height / 2 / 5 + 80;
-        sliderRectTransform.position = new Vector2(slimeX, slimeY);
-        */
         //배고픔 요소 쿨타임
         if (hungryindex > 20.0f)
             hungryindex -= (Time.deltaTime * 2);
@@ -135,14 +126,14 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
         else slimespriteRenderer.flipX = false;
 
         //Change Sprite
-        if (theta > -angleIndex && theta <= angleIndex) slimespriteRenderer.sprite = sprites[3];
-        else if (theta > angleIndex && theta <= 90 - angleIndex) slimespriteRenderer.sprite = sprites[1];
-        else if (theta > 90 - angleIndex && theta <= 90 + angleIndex) slimespriteRenderer.sprite = sprites[0];
-        else if (theta > 90 + angleIndex && theta <= 180 - angleIndex) slimespriteRenderer.sprite = sprites[1];
-        else if (theta > -90 + angleIndex && theta <= -angleIndex) slimespriteRenderer.sprite = sprites[5];
-        else if (theta > -90 - angleIndex && theta <= -90 + angleIndex) slimespriteRenderer.sprite = sprites[4];
-        else if (theta > -180 + angleIndex && theta <= -90 - angleIndex) slimespriteRenderer.sprite = sprites[5];
-        else slimespriteRenderer.sprite = sprites[3];
+        if (theta > -angleIndex && theta <= angleIndex) slimespriteRenderer.sprite = SO.Sprites[3];
+        else if (theta > angleIndex && theta <= 90 - angleIndex) slimespriteRenderer.sprite = SO.Sprites[1];
+        else if (theta > 90 - angleIndex && theta <= 90 + angleIndex) slimespriteRenderer.sprite = SO.Sprites[0];
+        else if (theta > 90 + angleIndex && theta <= 180 - angleIndex) slimespriteRenderer.sprite = SO.Sprites[1];
+        else if (theta > -90 + angleIndex && theta <= -angleIndex) slimespriteRenderer.sprite = SO.Sprites[5];
+        else if (theta > -90 - angleIndex && theta <= -90 + angleIndex) slimespriteRenderer.sprite = SO.Sprites[4];
+        else if (theta > -180 + angleIndex && theta <= -90 - angleIndex) slimespriteRenderer.sprite = SO.Sprites[5];
+        else slimespriteRenderer.sprite = SO.Sprites[3];
     }
 
     public static Vector2 RandomVector2(int minX, int minY, int maxX, int maxY)
@@ -161,12 +152,13 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
         if (eventData.pointerDrag.tag != "Food") return;
 
         ItemDrag input = eventData.pointerDrag.GetComponent<ItemDrag>();
-        if (hungryindex < maxHungry - input.hungryPoint)
+        if (hungryindex < SO.MaxHungry - input.hungryPoint)
         {
             hungryindex += input.hungryPoint;
             Debug.Log("냠");
             exp += input.expPoint;
-            GameObject preCore = Instantiate(core, (Vector3)slimeRigidbody.position + Vector3.back, Quaternion.identity);
+            var coreScript = Instantiate(corePrefab, (Vector3)slimeRigidbody.position + Vector3.back, Quaternion.identity).GetComponent<BasicCore>();
+            coreScript.SO = SO.Core;
         }
         else Debug.Log("배부름");
     }
@@ -181,7 +173,7 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
 
         //force 정의
         Vector2 f;
-        f = RandomVector2(minX, minY, maxX, maxY);
+        f = RandomVector2(SO.MinX, SO.MinY, SO.MaxX, SO.MaxY);
         
         //force의 vector값에 따른 애니메이션
         DoAnimation(f);
@@ -190,7 +182,7 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
         slimeRigidbody.AddForce(f);
         
         //반복
-        Invoke("move", UnityEngine.Random.Range(minMoveTime, maxMoveTime));
+        Invoke("move", UnityEngine.Random.Range(SO.MinMoveTime, SO.MaxMoveTime));
     }
     public void OnPointerClick(PointerEventData eventData)      //슬라임 클릭 시 정보UI 생성
     {

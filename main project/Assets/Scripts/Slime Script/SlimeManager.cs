@@ -5,32 +5,28 @@ using UnityEngine.UI;
 public class SlimeManager : MonoBehaviour
 {
     public static List<GameObject> SlimeList;
+    public SlimeSO slimeData;
+    public GameObject slimeprefab;
+    [SerializeField]
+    private List<SlimeSO> slimeSOList;
     public void Start()
     {
         if (SlimeList == null)
             SlimeList = new List<GameObject>();
     }
 
-    public static GameObject RandomSlime()
+    public SlimeSO RandomSlime()
     {
-        GameObject slimepre = null;
-        int randomslime = Random.Range(0, 4);
-        if (randomslime == 0)
-            slimepre = Resources.Load<GameObject>("Normal Slime");
-        else if (randomslime == 1)
-            slimepre = Resources.Load<GameObject>("Water Slime");
-        else if (randomslime == 2)
-            slimepre = Resources.Load<GameObject>("Ground Slime");
-        else if (randomslime == 3)
-            slimepre = Resources.Load<GameObject>("Fire Slime");
-        return slimepre;
+        int randomslime = Random.Range(0, slimeSOList.Count);
+        return slimeSOList[randomslime];
     }
     public void AddSlime()
     {
-        GameObject slime = Instantiate(RandomSlime());
+        GameObject slime = Instantiate(slimeprefab);
+        var slimescript = slime.GetComponent<basicslime>();
+        slimescript.SO = RandomSlime();
         slime.transform.position = Vector3.zero;
         SlimeList.Add(slime);
-
     }
     public void OnClick()
     {
@@ -54,5 +50,11 @@ public class SlimeManager : MonoBehaviour
             if (SlimeList[i - 1] == null)
                 SlimeList.RemoveAt(i - 1);
         }
+    }
+
+    public void upgradeScale(int input)
+    {
+        for (int i = 0; i < slimeSOList.Count; i++)
+            slimeSOList[i].Scale++;
     }
 }

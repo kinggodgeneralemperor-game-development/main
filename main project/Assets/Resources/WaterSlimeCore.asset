@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd31e6c708ce5e146a37b2540939f922, type: 3}
+  m_Name: WaterSlimeCore
+  m_EditorClassIdentifier: 
+  corePrice: 10
+  coreSprite: {fileID: 1598153159, guid: 854f9a442e40f0f4aa176c8b0be6858b, type: 3}

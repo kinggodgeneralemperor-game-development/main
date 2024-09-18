@@ -6,6 +6,7 @@ public class NormalSlime : basicslime
 {
     private new void Start()
     {
+        /*
         ((basicslime)this).Start();
         slimename = "Normal Slime";
         slimeinfo = "Basic Slime, it's not special";
@@ -15,12 +16,11 @@ public class NormalSlime : basicslime
         slimeId = 0; mass = 1; drag = 4;
         scale = 20;
 
-        //슬라임 캔버스 크기 조정
-        slimeCanvasRectTransform.sizeDelta = new Vector2(scale, scale);
 
         core = Resources.Load<GameObject>("Core_0");
         slimeRigidbody.mass = mass;
         slimeRigidbody.drag = drag;
         move();
+        */
     }
 }

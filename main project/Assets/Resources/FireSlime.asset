@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f76cd81f732cdd4aa424c214b0a67d4, type: 3}
+  m_Name: FireSlime
+  m_EditorClassIdentifier: 
+  minX: 40
+  minY: 40
+  maxX: 90
+  maxY: 90
+  minMoveTime: 0.5
+  maxMoveTime: 2
+  slimeId: 3
+  mass: 1
+  drag: 4
+  maxHungry: 100
+  scale: 20
+  sprites:
+  - {fileID: -1343176307, guid: 11ad43de35cb67246972e96651931243, type: 3}
+  - {fileID: -520142682, guid: 11ad43de35cb67246972e96651931243, type: 3}
+  - {fileID: -842739796, guid: 11ad43de35cb67246972e96651931243, type: 3}
+  - {fileID: 68410378, guid: 11ad43de35cb67246972e96651931243, type: 3}
+  - {fileID: 1874723744, guid: 11ad43de35cb67246972e96651931243, type: 3}
+  - {fileID: -144955014, guid: 11ad43de35cb67246972e96651931243, type: 3}
+  angleIndex: 30
+  core: {fileID: 11400000, guid: d716cc0e17ecbc0488611a102614a85a, type: 2}
+  basicCore: {fileID: 760934102823754159, guid: d44cf2d252e66264993fa9a4d3d5e129, type: 3}
+  hungryslider: {fileID: 2451313328542178044, guid: 7a3bbff2c53b43d4f972953e4e52fa53, type: 3}
+  levelSlider: {fileID: 4761465719234393579, guid: 1cfdf56df5afa9f469f67aea1fce6355, type: 3}
+  slimename: Fire Slime
+  slimeinfo: Slime burning brightly, Don't approach it
