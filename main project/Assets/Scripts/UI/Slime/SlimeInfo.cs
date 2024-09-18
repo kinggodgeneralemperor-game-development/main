@@ -10,30 +10,62 @@ public class SlimeInfo : BasicUI
     private TextMeshProUGUI InfoText;
     private TextMeshProUGUI LevelText;
     private Image InfoSprite;
+    private Slider LevelSlider;
+    private TextMeshProUGUI ExpText;
+    private Image HungrySlider;
+    private TextMeshProUGUI HungryText;
+
+    private GameObject gObj;
+    private basicslime gObjS;
 //  int k;
     public void Start()
     {
-//      k = 0;
         NameText = transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         InfoText = transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
         LevelText = transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>();
         InfoSprite = transform.GetChild(3).gameObject.GetComponent<Image>();
+        LevelSlider = transform.GetChild(4).gameObject.GetComponent<Slider>();
+        ExpText = transform.GetChild(5).gameObject.GetComponent<TextMeshProUGUI>();
+        HungrySlider = transform.GetChild(6).gameObject.GetComponent<Image>();
+        HungryText = transform.GetChild(7).gameObject.GetComponent<TextMeshProUGUI>();
+
         gameObject.SetActive(false);
+    }
+    private void Update()
+    {
+        if (gObj)
+        {
+            NameText.text = string.Format(gObjS.slimename);
+            InfoText.text = string.Format(gObjS.slimeinfo);
+            LevelText.text = string.Format("Level : " + gObjS.level);
+            InfoSprite.sprite = gObjS.sprites[2];
+            LevelSlider.value = gObjS.exp;
+            ExpText.text = string.Format(gObjS.exp + " / " + gObjS.maxexp);
+            HungrySlider.fillAmount = gObjS.hungryslider.fillAmount;
+            HungryText.text = string.Format("Hungry : {0:0.0} / {1:0}", gObjS.hungryindex, gObjS.maxHungry);
+        }
+        else
+            hideit();
+    }
+    public void getGameObject(GameObject input)
+    {
+        gObj = input;
+        gObjS = gObj.GetComponent<basicslime>();
     }
     public void Editname(string input)
     {
-        NameText.text = string.Format(input);
+        //NameText.text = string.Format(input);
     }
     public void Editinfo(string input)
     {
-        InfoText.text = string.Format(input);
+        //InfoText.text = string.Format(input);
     }    
     public void Editlevel(int input)
     {
-        LevelText.text = string.Format("Level : " + input);
+        //LevelText.text = string.Format("Level : " + input);
     }
     public void EditSprite(Sprite input)
     {
-        InfoSprite.sprite = input;
+        //InfoSprite.sprite = input;
     }
 }

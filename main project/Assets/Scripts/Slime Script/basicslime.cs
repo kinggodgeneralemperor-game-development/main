@@ -1,4 +1,4 @@
-using System;
+ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +24,7 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
     public float hungryindex;
     public int level;
     public int exp;
+    public int maxexp;
     public float scale;
     //기본 정보
     public Rigidbody2D slimeRigidbody;
@@ -63,6 +64,7 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
         slimeRigidbody.gravityScale = 0;
         hungryindex = 80;
         level = 0;
+        maxexp = 100;
         exp = 0;
 
         //슬라임 배고픔 슬라이더 추가
@@ -92,6 +94,7 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
     void Update()
     {
         hungryslider.fillAmount = hungryindex / maxHungry;
+        levelSlider.maxValue = maxexp;
         levelSlider.value = exp;
         //Slider UI 위치 변경
         /*
@@ -191,11 +194,8 @@ public abstract class basicslime : MonoBehaviour, IDropHandler, IPointerClickHan
     }
     public void OnPointerClick(PointerEventData eventData)      //슬라임 클릭 시 정보UI 생성
     {
+        SlimeUI.gameObject.GetComponent<SlimeInfo>().getGameObject(gameObject);
         SlimeUI.GetComponent<SlimeInfo>().showit();
-        SlimeUI.gameObject.GetComponent<SlimeInfo>().Editname(slimename);
-        SlimeUI.gameObject.GetComponent<SlimeInfo>().Editinfo(slimeinfo);
-        SlimeUI.gameObject.GetComponent<SlimeInfo>().Editlevel(level);
-        SlimeUI.gameObject.GetComponent<SlimeInfo>().EditSprite(sprites[2]);
     }
     private void OnDestroy()
     {
