@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Slime
   - Food
+  - core
+  - New tag
   layers:
   - Default
   - TransparentFX
@@ -14,7 +16,7 @@ TagManager:
   - Water
   - UI
   - Slime
-  - 
+  - Core
   - 
   - 
   - 
