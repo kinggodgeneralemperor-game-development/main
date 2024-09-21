@@ -14,11 +14,11 @@ public class StorageInfo : MonoBehaviour
         for(int i = 0; i < 5; ++i)
             Text[i] = transform.GetChild(i).transform.GetChild(1).gameObject.GetComponent<Text>();
 
-        Name[0] = "°¨ÀÚ¾¾¾Ñ x";
-        Name[1] = "°¨ÀÚ¾¾¾Ñ x";
-        Name[2] = "°¨ÀÚ¾¾¾Ñ x";
-        Name[3] = "°¨ÀÚ¾¾¾Ñ x";
-        Name[4] = "°¨ÀÚ¾¾¾Ñ x";
+        Name[0] = "¼ö¹Ú ¾¾¾Ñ x";
+        Name[1] = "Åä¸¶Åä ¾¾¾Ñ x";
+        Name[2] = "Äá ¾¾¾Ñ x";
+        Name[3] = "´ç±Ù ¾¾¾Ñ x";
+        Name[4] = "°¨ÀÚ ¾¾¾Ñ x";
     }
 
     public static void modifySeedBag(int seedNumber, int seedCount)

@@ -5,15 +5,6 @@ using UnityEngine;
 
 public class Storage : MonoBehaviour
 {
-    public enum SeedType
-    {
-        water,
-        fire,
-        wood,
-        metal,
-        ground
-    }
-
     public GameObject errorUI;
     static int[] seedPrice = new int[5];
     static int[] storageSeed = new int[5];
@@ -24,6 +15,7 @@ public class Storage : MonoBehaviour
         seedPrice[2] = 10;
         seedPrice[3] = 50;
         seedPrice[4] = 100;
+
     }
     bool CheckGold(int price)
     {
@@ -59,6 +51,9 @@ public class Storage : MonoBehaviour
         if (storageSeed[whatSeed] > 0)
         {
             storageSeed[whatSeed]--;
+            StorageInfo.modifySeedBag(whatSeed, storageSeed[whatSeed]);
+            PlantSeed temp = GameObject.Find("Farm Canvas").transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<PlantSeed>();
+            temp.PlantIt(whatSeed);
         }
         if (storageSeed[whatSeed] == 0)
         {
