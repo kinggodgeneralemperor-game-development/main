@@ -12,7 +12,7 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
 
     //움직임 이후 경직 시간
     //minMoveTime, maxMoveTime;
-
+    
     //슬라임 정보
     public float hungryindex;
     public int level;
@@ -53,12 +53,12 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
         slimeRigidbody.mass = SO.Mass;
         slimeRigidbody.drag = SO.Drag;
         slimeRigidbody.gravityScale = 0;
-        hungryindex = 80;
+        hungryindex = 30;
         level = 0;
         maxexp = 100;
         exp = 0;
-
-
+        SO.OnChanged += Slime_OnChanged;
+        Resources.Load<UpgradeSO>("UpgradeSO").OnChanged += Slime_OnChanged;
         //슬라임 배고픔 슬라이더 추가
         hungryslider = SO.Hungryslider;
         slimeCanvas = Resources.Load<Canvas>("SlimeCanvas");
@@ -89,21 +89,16 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
 
     void Update()
     {
-        gameObject.transform.localScale = new Vector2(SO.Scale, SO.Scale);
         hungryslider.fillAmount = hungryindex / SO.MaxHungry;
         levelSlider.maxValue = maxexp;
         levelSlider.value = exp;
         //배고픔 요소 쿨타임
-        if (hungryindex > 20.0f)
-            hungryindex -= (Time.deltaTime * 2);
-        else
-            hungryindex -= Time.deltaTime;
-
-        //농장 탈출 (TEMP)
-        if (hungryindex < 0)
+        if (hungryindex > 0)
         {
-            Debug.Log("슬라임 하나가 농장을 탈출했습니다.");
-            Destroy(gameObject);
+            if (hungryindex > 20.0f)
+                hungryindex -= (Time.deltaTime * 2);
+            else
+                hungryindex -= Time.deltaTime;
         }
     }
 
@@ -189,7 +184,11 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
         SlimeUI.gameObject.GetComponent<SlimeInfo>().getGameObject(gameObject);
         SlimeUI.GetComponent<SlimeInfo>().showit();
     }
-    private void OnDestroy()
+
+    //슬라임 이벤트 시그니처
+    private void Slime_OnChanged(object sender, EventArgs eventArgs)
     {
+        Debug.Log("qkRnla");
+        gameObject.transform.localScale = new Vector2(SO.Scale, SO.Scale);
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -39,6 +40,8 @@ public class SlimeSO : ScriptableObject
     [SerializeField] private string slimename;
     [SerializeField] private string slimeinfo;
 
+    [SerializeField] private int hungerCooldown;
+
     //최대 최소 움직임
     public int MinX { get { return minX; } }
     public int MinY{ get { return minY; }}
@@ -54,7 +57,7 @@ public class SlimeSO : ScriptableObject
     public int Mass{ get { return mass; }}
     public int Drag{ get { return drag; }}
     public float MaxHungry{ get { return maxHungry; }}
-    public float Scale{ set { scale = value; } get { return scale; }}
+    public float Scale{ set { scale = value; OnChanged(this, EventArgs.Empty);} get { return scale; }}
 
     //애니메이션
     public Sprite[] Sprites{ get { return sprites; }}
@@ -71,4 +74,6 @@ public class SlimeSO : ScriptableObject
     public static GameObject SlimeUI{ get { return slimeUI; }}
     public string Slimename{ get { return slimename; }}
     public string Slimeinfo{ get { return slimeinfo; }}
+
+    public event EventHandler OnChanged;
 }

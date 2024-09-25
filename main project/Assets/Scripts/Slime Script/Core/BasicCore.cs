@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,8 @@ public class BasicCore : MonoBehaviour, IPointerClickHandler
         coreRigidbody.AddForce(new Vector2(20, 80));
         coreRigidbody.drag = 3;
         coreSpriteRenderer.sprite = SO.CoreSprite;
+        SO.OnChanged += Slime_Core_OnChanged;
+
         Invoke("RemoveGravity", 1);
     }
     public void RemoveGravity()
@@ -38,5 +41,8 @@ public class BasicCore : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         CoreClick();
+    }
+    private void Slime_Core_OnChanged(object sender, EventArgs eventArgs)
+    {
     }
 }

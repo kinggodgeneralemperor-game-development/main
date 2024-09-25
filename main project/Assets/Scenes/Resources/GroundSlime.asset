@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f76cd81f732cdd4aa424c214b0a67d4, type: 3}
+  m_Name: GroundSlime
+  m_EditorClassIdentifier: 
+  minX: 10
+  minY: 10
+  maxX: 40
+  maxY: 40
+  minMoveTime: 2
+  maxMoveTime: 5
+  slimeId: 2
+  mass: 1
+  drag: 4
+  maxHungry: 70
+  scale: 25
+  sprites:
+  - {fileID: -1844526188, guid: 2c3d3b95248d2324ea85fb84b8735c5a, type: 3}
+  - {fileID: 1583339310, guid: 2c3d3b95248d2324ea85fb84b8735c5a, type: 3}
+  - {fileID: -1537508648, guid: 2c3d3b95248d2324ea85fb84b8735c5a, type: 3}
+  - {fileID: -1939244606, guid: 2c3d3b95248d2324ea85fb84b8735c5a, type: 3}
+  - {fileID: 1720154451, guid: 2c3d3b95248d2324ea85fb84b8735c5a, type: 3}
+  - {fileID: -190390315, guid: 2c3d3b95248d2324ea85fb84b8735c5a, type: 3}
+  angleIndex: 30
+  core: {fileID: 11400000, guid: 51109d8c94e2644449817999d1b6c19a, type: 2}
+  basicCore: {fileID: 760934102823754159, guid: d44cf2d252e66264993fa9a4d3d5e129, type: 3}
+  hungryslider: {fileID: 2451313328542178044, guid: 7a3bbff2c53b43d4f972953e4e52fa53, type: 3}
+  levelSlider: {fileID: 4761465719234393579, guid: 1cfdf56df5afa9f469f67aea1fce6355, type: 3}
+  slimename: Ground Slime
+  slimeinfo: The heaviest slime in the world
+  hungerCooldown: 0

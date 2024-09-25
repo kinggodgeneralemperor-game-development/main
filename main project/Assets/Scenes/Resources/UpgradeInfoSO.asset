@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00878de7e5660d24e9d83f2ce24fd8d0, type: 3}
+  m_Name: UpgradeInfoSO
+  m_EditorClassIdentifier: 
+  slimeMax: 0100000002000000030000000400000005000000060000000700000008000000090000000a000000
+  slimeMaxPrice: 00000000140000005a000000a5000000c2010000e8030000d0070000ac0d0000881300004c1d0000
+  hungerCooldown: 070000000500000004000000030000000200000001000000
+  hungerCooldownPrice: 0000000032000000640000002c010000e803000088130000
+  growSpeed: 0a0000000900000008000000070000000600000005000000
+  growSpeedPrice: 000000003200000064000000f4010000e803000088130000

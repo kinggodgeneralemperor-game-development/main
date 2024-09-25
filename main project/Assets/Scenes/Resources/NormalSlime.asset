@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f76cd81f732cdd4aa424c214b0a67d4, type: 3}
+  m_Name: NormalSlime
+  m_EditorClassIdentifier: 
+  minX: 20
+  minY: 20
+  maxX: 50
+  maxY: 50
+  minMoveTime: 1
+  maxMoveTime: 3
+  slimeId: 0
+  mass: 1
+  drag: 4
+  maxHungry: 70
+  scale: 20
+  sprites:
+  - {fileID: -929587723, guid: 2516322f223b9f844bff43fab68e5faa, type: 3}
+  - {fileID: -790576258, guid: 2516322f223b9f844bff43fab68e5faa, type: 3}
+  - {fileID: 510533485, guid: 2516322f223b9f844bff43fab68e5faa, type: 3}
+  - {fileID: 1019050965, guid: 2516322f223b9f844bff43fab68e5faa, type: 3}
+  - {fileID: -1753182201, guid: 2516322f223b9f844bff43fab68e5faa, type: 3}
+  - {fileID: 1922713963, guid: 2516322f223b9f844bff43fab68e5faa, type: 3}
+  angleIndex: 30
+  core: {fileID: 11400000, guid: 1c258fc861bdb5243a0c8299a56844b9, type: 2}
+  basicCore: {fileID: 760934102823754159, guid: d44cf2d252e66264993fa9a4d3d5e129, type: 3}
+  hungryslider: {fileID: 2451313328542178044, guid: 7a3bbff2c53b43d4f972953e4e52fa53, type: 3}
+  levelSlider: {fileID: 4761465719234393579, guid: 1cfdf56df5afa9f469f67aea1fce6355, type: 3}
+  slimename: Normal Slime
+  slimeinfo: Basic Slime, it's not special
+  hungerCooldown: 0

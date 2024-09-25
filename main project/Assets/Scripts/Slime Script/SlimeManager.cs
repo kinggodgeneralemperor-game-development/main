@@ -55,6 +55,6 @@ public class SlimeManager : MonoBehaviour
     public void upgradeScale(int input)
     {
         for (int i = 0; i < slimeSOList.Count; i++)
-            slimeSOList[i].Scale++;
+            slimeSOList[i].Scale += input;
     }
 }

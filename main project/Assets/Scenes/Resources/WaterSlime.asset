@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f76cd81f732cdd4aa424c214b0a67d4, type: 3}
+  m_Name: WaterSlime
+  m_EditorClassIdentifier: 
+  minX: 30
+  minY: 30
+  maxX: 60
+  maxY: 60
+  minMoveTime: 0.5
+  maxMoveTime: 2
+  slimeId: 1
+  mass: 1
+  drag: 4
+  maxHungry: 70
+  scale: 15
+  sprites:
+  - {fileID: -164423435, guid: ef6d658654c53d540a7dc866a582fae5, type: 3}
+  - {fileID: -1160327843, guid: ef6d658654c53d540a7dc866a582fae5, type: 3}
+  - {fileID: -1264300992, guid: ef6d658654c53d540a7dc866a582fae5, type: 3}
+  - {fileID: 1312500450, guid: ef6d658654c53d540a7dc866a582fae5, type: 3}
+  - {fileID: 683293926, guid: ef6d658654c53d540a7dc866a582fae5, type: 3}
+  - {fileID: 765386792, guid: ef6d658654c53d540a7dc866a582fae5, type: 3}
+  angleIndex: 30
+  core: {fileID: 11400000, guid: 9ca2c6e9fb9cf3f4ea872c477dc40a2b, type: 2}
+  basicCore: {fileID: 760934102823754159, guid: d44cf2d252e66264993fa9a4d3d5e129, type: 3}
+  hungryslider: {fileID: 2451313328542178044, guid: 7a3bbff2c53b43d4f972953e4e52fa53, type: 3}
+  levelSlider: {fileID: 4761465719234393579, guid: 1cfdf56df5afa9f469f67aea1fce6355, type: 3}
+  slimename: Water Slime
+  slimeinfo: It has the strongest surface tension
+  hungerCooldown: 0
