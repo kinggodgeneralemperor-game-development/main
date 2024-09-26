@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class SlimeManager : MonoBehaviour
 {
+    [SerializeField] UpgradeSO UpgradeSO;
     public static List<GameObject> SlimeList;
     public SlimeSO slimeData;
     public GameObject slimeprefab;
@@ -20,13 +21,20 @@ public class SlimeManager : MonoBehaviour
         int randomslime = Random.Range(0, slimeSOList.Count);
         return slimeSOList[randomslime];
     }
-    public void AddSlime()
+    public bool AddSlime()
     {
+        if(SlimeList.Count >= UpgradeSO.SlimeMax)
+        {
+            Debug.Log("슬라임이 너무 많습니다");
+            return false;
+        }
         GameObject slime = Instantiate(slimeprefab);
         var slimescript = slime.GetComponent<basicslime>();
         slimescript.SO = RandomSlime();
         slime.transform.position = Vector3.zero;
         SlimeList.Add(slime);
+
+        return true;
     }
     public void OnClick()
     {

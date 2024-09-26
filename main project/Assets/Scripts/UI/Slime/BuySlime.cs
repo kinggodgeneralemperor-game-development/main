@@ -25,8 +25,9 @@ public class BuySlime : MonoBehaviour
         else 
         {
             //슬라임 소환 및 골드 소모
-            GoldManager.UpdateGold(price * -1);
-            SlimeManager.GetComponent<SlimeManager>().AddSlime();
+            if(SlimeManager.GetComponent<SlimeManager>().AddSlime())
+                GoldManager.UpdateGold(price * -1);
+
         }
     }
 }

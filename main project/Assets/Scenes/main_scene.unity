@@ -8888,6 +8888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80770f28741f2f941aa716cfc42e0ab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UpgradeSO: {fileID: 11400000, guid: 80859de34ac69ee4c9ea1e4cf4ba7e9a, type: 2}
   slimeData: {fileID: 11400000, guid: 66b4a094dddbea24284ca4ae199ca7ba, type: 2}
   slimeprefab: {fileID: 58290695446820827, guid: 9b926b6a996e3f34eb47e9a7be6a17a2, type: 3}
   slimeSOList:
@@ -10960,6 +10961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd422abab9674d54f86dea8a664ad24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UpgradeSO: {fileID: 11400000, guid: 80859de34ac69ee4c9ea1e4cf4ba7e9a, type: 2}
   maintimeText: {fileID: 1088750481}
   currentGoldText: {fileID: 230782840}
   currentSlimeText: {fileID: 999013189}
