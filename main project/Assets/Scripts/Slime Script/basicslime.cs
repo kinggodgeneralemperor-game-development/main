@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
     public SlimeSO SO;
+    public UpgradeSO UpgradeSO;
     //최대 최소 움직임
     // minX, minY, maxX, maxY;
 
@@ -17,7 +18,6 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
     public float hungryindex;
     public int level;
     public int exp;
-    public int maxexp;
     //기본 정보
     //slimeid, mass, drag, maxHungry, scale, slimename, slimeinfo
     public Rigidbody2D slimeRigidbody;
@@ -26,6 +26,13 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
     public RectTransform hungrysliderRectTransform;
     public RectTransform slimeCanvasRectTransform;
     public Canvas slimeCanvas;
+
+    //UpgradeSO의 값과 곱해서 최대값을 계산
+    private const int MaxHungryValue = 10;
+    private const int MaxExpValue = 10;
+    public int MaxHungry;
+    public int MaxExp;
+
     //temp
     public bool boolmove;
 
@@ -55,10 +62,10 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
         slimeRigidbody.gravityScale = 0;
         hungryindex = 30;
         level = 0;
-        maxexp = 100;
         exp = 0;
         SO.OnChanged += Slime_OnChanged;
-        Resources.Load<UpgradeSO>("UpgradeSO").OnChanged += Slime_OnChanged;
+        UpgradeSO = Resources.Load<UpgradeSO>("UpgradeSO");
+        UpgradeSO.OnChanged += Slime_OnChanged;
         //슬라임 배고픔 슬라이더 추가
         hungryslider = SO.Hungryslider;
         slimeCanvas = Resources.Load<Canvas>("SlimeCanvas");
@@ -89,8 +96,11 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
 
     void Update()
     {
-        hungryslider.fillAmount = hungryindex / SO.MaxHungry;
-        levelSlider.maxValue = maxexp;
+        MaxHungry = MaxHungryValue * UpgradeSO.HungerCooldown;
+        MaxExp = MaxExpValue * UpgradeSO.SlimeMaxExp;
+
+        hungryslider.fillAmount = hungryindex / MaxHungry;
+        levelSlider.maxValue = MaxExp;
         levelSlider.value = exp;
         //배고픔 요소 쿨타임
         if (hungryindex > 0)
@@ -99,6 +109,10 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
                 hungryindex -= (Time.deltaTime * 2);
             else
                 hungryindex -= Time.deltaTime;
+        }
+        if(exp >= MaxExp)
+        {
+            SlimeLevelup(1);
         }
     }
 
@@ -190,5 +204,12 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
     {
         Debug.Log("qkRnla");
         gameObject.transform.localScale = new Vector2(SO.Scale, SO.Scale);
+        if (hungryindex >= MaxHungry) hungryindex = MaxHungry;
+    }
+
+    private void SlimeLevelup(int input)
+    {
+        level += input;
+        exp = 0;
     }
 }

@@ -15,4 +15,11 @@ MonoBehaviour:
   UpgradeInfo: {fileID: 11400000, guid: 2b8ac5529d7d4544a89ae9f281e7f4ec, type: 2}
   slimeMaxLV: 0
   hungerCooldownLV: 0
-  growSpeedLV: 0
+  slimeMaxExpLV: 0
+  autoFeeding: 0
+  autoCore: 0
+  betterCropsLV: 0
+  fasterCropsGrowLV: 0
+  wetGroundLV: 0
+  groundMaxLV: 0
+  autoHarvest: 0

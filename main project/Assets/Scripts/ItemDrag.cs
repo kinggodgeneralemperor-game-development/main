@@ -20,7 +20,7 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     private void Start()
     {
-        expPoint = 5;
+        expPoint = 30;
         hungryPoint = 10;
     }
     private void Awake()

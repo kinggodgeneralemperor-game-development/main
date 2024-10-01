@@ -42,8 +42,8 @@ public class SlimeManager : MonoBehaviour
     }
     public void Update()
     { 
-        Debug.Log(SlimeList.Count);
-        RemoveEmpty();
+        //Debug.Log(SlimeList.Count);
+        //RemoveEmpty();
     }
 
     public static int GetSlimeNumber()
