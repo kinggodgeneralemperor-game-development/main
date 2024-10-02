@@ -28,7 +28,7 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
     public Canvas slimeCanvas;
 
     //UpgradeSOÀÇ °ª°ú °öÇØ¼­ ÃÖ´ë°ªÀ» °è»ê
-    private const int MaxHungryValue = 10;
+    private const int MaxHungryValue = 100;
     private const int MaxExpValue = 10;
     public int MaxHungry;
     public int MaxExp;
@@ -60,7 +60,7 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
         slimeRigidbody.mass = SO.Mass;
         slimeRigidbody.drag = SO.Drag;
         slimeRigidbody.gravityScale = 0;
-        hungryindex = 30;
+        hungryindex = 0;
         level = 0;
         exp = 0;
         SO.OnChanged += Slime_OnChanged;
@@ -96,7 +96,7 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
 
     void Update()
     {
-        MaxHungry = MaxHungryValue * UpgradeSO.HungerCooldown;
+        MaxHungry = MaxHungryValue;
         MaxExp = MaxExpValue * UpgradeSO.SlimeMaxExp;
 
         hungryslider.fillAmount = hungryindex / MaxHungry;
@@ -105,10 +105,10 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
         //¹è°íÇÄ ¿ä¼Ò ÄðÅ¸ÀÓ
         if (hungryindex > 0)
         {
-            if (hungryindex > 20.0f)
-                hungryindex -= (Time.deltaTime * 2);
-            else
-                hungryindex -= Time.deltaTime;
+            //if (hungryindex > 20.0f)
+                hungryindex -= (Time.deltaTime * UpgradeSO.HungerCooldown);
+           // else
+                //hungryindex -= Time.deltaTime;
         }
         if(exp >= MaxExp)
         {
@@ -161,7 +161,7 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
         if (eventData.pointerDrag.tag != "Food") return;
 
         ItemDrag input = eventData.pointerDrag.GetComponent<ItemDrag>();
-        if (hungryindex < SO.MaxHungry - input.hungryPoint)
+        if (hungryindex < MaxHungry - input.hungryPoint)
         {
             hungryindex += input.hungryPoint;
             Debug.Log("³È");
@@ -211,5 +211,14 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
     {
         level += input;
         exp = 0;
+    }
+
+    public bool SlimeEvolutionable()
+    {
+
+        if (level >= SO.MaxLevel)
+            return true;
+
+        return false;
     }
 }

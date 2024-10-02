@@ -14,6 +14,7 @@ public class SlimeInfo : BasicUI
     private TextMeshProUGUI ExpText;
     private Image HungrySlider;
     private TextMeshProUGUI HungryText;
+    private Button EvolutionButton;
 
     private GameObject gObj;
     private basicslime gObjS;
@@ -28,7 +29,8 @@ public class SlimeInfo : BasicUI
         ExpText = transform.GetChild(5).gameObject.GetComponent<TextMeshProUGUI>();
         HungrySlider = transform.GetChild(6).gameObject.GetComponent<Image>();
         HungryText = transform.GetChild(7).gameObject.GetComponent<TextMeshProUGUI>();
-
+        EvolutionButton = transform.GetChild(8).gameObject.GetComponent<Button>();
+        EvolutionButton.gameObject.SetActive(false);
         gameObject.SetActive(false);
     }
     private void Update()
@@ -43,6 +45,7 @@ public class SlimeInfo : BasicUI
             ExpText.text = string.Format(gObjS.exp + " / " + gObjS.MaxExp);
             HungrySlider.fillAmount = gObjS.hungryslider.fillAmount;
             HungryText.text = string.Format("Hungry : {0:0.0} / {1:0}", gObjS.hungryindex, gObjS.MaxHungry);
+            EvolutionButton.gameObject.SetActive(gObjS.SlimeEvolutionable());
         }
         else
             hideit();

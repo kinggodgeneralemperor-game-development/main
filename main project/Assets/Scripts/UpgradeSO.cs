@@ -14,7 +14,7 @@ public class UpgradeSO : ScriptableObject
     [SerializeField] private int slimeMaxExpLV;
     [SerializeField] private bool autoFeeding;
     [SerializeField] private bool autoCore;
-    public int SlimeMaxLV { set { slimeMaxLV = value; if(OnChanged != null) OnChanged.Invoke(this, EventArgs.Empty); } get { return slimeMaxLV; } }
+    public int SlimeMaxLV { set { slimeMaxLV = value; if(OnChanged != null) OnChanged.Invoke(this, EventArgs.Empty);} get { return slimeMaxLV; } }
     public int HungerCooldownLV { set { hungerCooldownLV = value; if (OnChanged != null) OnChanged.Invoke(this, EventArgs.Empty); } get { return hungerCooldownLV; } }
     public int SlimeMaxExpLV { set { SlimeMaxExpLV = value; if (OnChanged != null) OnChanged.Invoke(this, EventArgs.Empty); } get { return slimeMaxExpLV; } }
    
@@ -28,9 +28,9 @@ public class UpgradeSO : ScriptableObject
     public bool AutoFeeding { set { autoFeeding = value; if (OnChanged != null) OnChanged.Invoke(this, EventArgs.Empty); } get { return autoFeeding; } }
     public bool AutoCore { set { autoCore = value; if (OnChanged != null) OnChanged.Invoke(this, EventArgs.Empty); } get { return autoCore; } }
 
-    public void slimeMaxlevelup() { if (SlimeMaxLV < UpgradeInfo.SlimeMax.Count) SlimeMaxLV++;}
-    public void HungerCooldownlevelup() { if (HungerCooldownLV < UpgradeInfo.HungerCooldown.Count) hungerCooldownLV++; }
-    public void SlimeMaxExplevelup() { if (SlimeMaxExpLV < UpgradeInfo.SlimeMaxExp.Count) slimeMaxExpLV++; }
+    public void slimeMaxlevelup() { if (SlimeMaxLV < UpgradeInfo.SlimeMax.Count-1) SlimeMaxLV++;}
+    public void HungerCooldownlevelup() { if (HungerCooldownLV < UpgradeInfo.HungerCooldown.Count-1) hungerCooldownLV++; }
+    public void SlimeMaxExplevelup() { if (SlimeMaxExpLV < UpgradeInfo.SlimeMaxExp.Count-1) slimeMaxExpLV++; }
     public void AutoFeedinglevelup() { AutoFeeding = true; }
     public void AutoCorelevelup() { AutoCore = true; }
 

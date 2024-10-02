@@ -37,4 +37,5 @@ MonoBehaviour:
   levelSlider: {fileID: 4761465719234393579, guid: 1cfdf56df5afa9f469f67aea1fce6355, type: 3}
   slimename: Normal Slime
   slimeinfo: Basic Slime, it's not special
+  maxLevel: 2
   hungerCooldown: 0
