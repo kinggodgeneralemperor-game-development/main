@@ -8,6 +8,7 @@ public class SlimeManager : MonoBehaviour
     public static List<GameObject> SlimeList;
     public SlimeSO slimeData;
     public GameObject slimeprefab;
+    public Info info;
     [SerializeField]
     private List<SlimeSO> slimeSOList;
     public void Start()
@@ -33,6 +34,7 @@ public class SlimeManager : MonoBehaviour
         slimescript.SO = RandomSlime();
         slime.transform.position = Vector3.zero;
         SlimeList.Add(slime);
+        info.IsCollected(slimescript.SO.SlimeId);
 
         return true;
     }

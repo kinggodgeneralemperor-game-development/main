@@ -19,6 +19,7 @@ public class FieldInfo : MonoBehaviour
     RectTransform trans;
     public Sprite[] sprites = new Sprite[5];
     public GameObject MainStorage;
+    public Info info;
     int seedNumber;
     Text plantName;
     Text timer;
@@ -93,6 +94,8 @@ public class FieldInfo : MonoBehaviour
             plantName.text = string.Format("ºó ¹ç");
             plantImage.color = new Color(1, 1, 1, 0);
             MainStorage.GetComponent<DrawChange>().getFood(seedNumber);
+
+            info.IsCollected(seedNumber+6);
         }
     }
 
