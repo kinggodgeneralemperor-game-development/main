@@ -12,6 +12,7 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public static CanvasGroup CanvasGroup;
     public int expPoint;
     public int hungryPoint;
+    static int foodNumber;
     RectTransform rectTrans;
     public Sprite[] foodSprites = new Sprite[5];
     Image image;
@@ -28,6 +29,7 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         CanvasGroup = GetComponent<CanvasGroup>();
         image = GetComponent<Image>();
         rectTrans = GetComponent<RectTransform>();
+        startposition = this.transform.position;
 
         heightWidth[0] = 19.0f / 15.0f;
         heightWidth[1] = 8.0f / 11.0f;
@@ -40,16 +42,25 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         rectTrans.sizeDelta = new Vector2(120, 120*heightWidth[foodNum]);
         image.sprite = foodSprites[foodNum];
+        foodNumber= foodNum;
+        DrawNum.ModifyFoodNumber(DrawChange.getFoodCount(foodNum));
+    }
+
+    public static int getFoodNum()
+    {
+        return foodNumber; 
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (DrawChange.getFoodCount(ItemDrag.getFoodNum()) <= 0) return;
         startposition = this.transform.position;
         CanvasGroup.blocksRaycasts = false;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (DrawChange.getFoodCount(ItemDrag.getFoodNum()) <= 0) return;
         this.transform.position = eventData.position;
     }
     public void OnEndDrag(PointerEventData eventData)
@@ -57,5 +68,4 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         CanvasGroup.blocksRaycasts = true;
         this.transform.position = startposition;
     }
-
 }

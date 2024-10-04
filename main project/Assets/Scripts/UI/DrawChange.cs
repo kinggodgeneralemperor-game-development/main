@@ -7,7 +7,7 @@ public class DrawChange : MonoBehaviour
 {
     private static Text[] Text = new Text[5];
     private static string[] Name = new string[5];
-    int[] foodCount = new int[5];
+    static int[] foodCount = new int[5];
 
     void Awake()
     {
@@ -25,26 +25,30 @@ public class DrawChange : MonoBehaviour
     {
         foodCount[foodNum]++;
         modifyFoodNumber(foodNum);
+        if(ItemDrag.getFoodNum() == foodNum) DrawNum.ModifyFoodNumber(foodCount[foodNum]);
     }
 
-    public bool useFood(int foodNum)
+    public static void useFood(int foodNum)
     {
         if (foodCount[foodNum] > 0)
         {
             foodCount[foodNum]--;
             modifyFoodNumber(foodNum);
-            return true;
+            DrawNum.ModifyFoodNumber(foodCount[foodNum]);
         }
         else
         {
             //먹이 부족 메세지
-
-            return false;
         }
-    }//true false를 통한 슬라임 먹이 공급 여부
+    }//getFoodCount로 먹이 수 체크 후 usdFood 함수 사용
 
-    void modifyFoodNumber(int foodNum)
+    static void modifyFoodNumber(int foodNum)
     {
         Text[foodNum].text = string.Format(Name[foodNum] + foodCount[foodNum].ToString());
+    }
+
+    public static int getFoodCount(int foodNum)
+    {
+        return foodCount[foodNum];
     }
 }

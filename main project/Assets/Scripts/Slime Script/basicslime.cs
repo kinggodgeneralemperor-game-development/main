@@ -159,6 +159,7 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
     public void OnDrop(PointerEventData eventData)      //슬라임 먹이 주기
     {
         if (eventData.pointerDrag.tag != "Food") return;
+        if(DrawChange.getFoodCount(ItemDrag.getFoodNum()) <=0) return;
 
         ItemDrag input = eventData.pointerDrag.GetComponent<ItemDrag>();
         if (hungryindex < MaxHungry - input.hungryPoint)
@@ -168,6 +169,7 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
             exp += input.expPoint;
             var coreScript = Instantiate(corePrefab, (Vector3)slimeRigidbody.position + Vector3.back, Quaternion.identity).GetComponent<BasicCore>();
             coreScript.SO = SO.Core;
+            DrawChange.useFood(ItemDrag.getFoodNum());
         }
         else Debug.Log("배부름");
     }
