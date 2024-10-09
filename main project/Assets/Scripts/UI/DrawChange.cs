@@ -19,6 +19,7 @@ public class DrawChange : MonoBehaviour
         Name[2] = "콩 x";
         Name[3] = "당근 x";
         Name[4] = "감자 x";
+        foodCount[0] = 5;
     }
 
     public void getFood(int foodNum)

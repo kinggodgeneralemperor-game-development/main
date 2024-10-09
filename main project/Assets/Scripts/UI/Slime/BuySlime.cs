@@ -17,7 +17,7 @@ public class BuySlime : MonoBehaviour
     //구매 버튼 클릭 시, 골드 체크 및 슬라임 소환
     public void CheckGold()
     {
-        if(price > GoldManager.GetcurrentGold())
+        if(!GoldManager.CheckGold(price))
         {
             //골드 부족 정보창
             errorUI.SetActive(true);

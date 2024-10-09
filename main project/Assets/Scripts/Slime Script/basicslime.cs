@@ -105,10 +105,7 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
         //¹è°íÇÄ ¿ä¼Ò ÄðÅ¸ÀÓ
         if (hungryindex > 0)
         {
-            //if (hungryindex > 20.0f)
-                hungryindex -= (Time.deltaTime * UpgradeSO.HungerCooldown);
-           // else
-                //hungryindex -= Time.deltaTime;
+            hungryindex -= (Time.deltaTime * UpgradeSO.HungerCooldown);
         }
         if(exp >= MaxExp)
         {
@@ -166,7 +163,8 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
         {
             hungryindex += input.hungryPoint;
             Debug.Log("³È");
-            exp += input.expPoint;
+            if(!(level >= SO.MaxLevel))
+                exp += input.expPoint;
             var coreScript = Instantiate(corePrefab, (Vector3)slimeRigidbody.position + Vector3.back, Quaternion.identity).GetComponent<BasicCore>();
             coreScript.SO = SO.Core;
             DrawChange.useFood(ItemDrag.getFoodNum());
@@ -222,5 +220,10 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
             return true;
 
         return false;
+    }
+
+    public int SlimeMaxLVinfo()
+    {
+        return SO.MaxLevel;
     }
 }

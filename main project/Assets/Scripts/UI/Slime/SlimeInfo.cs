@@ -18,9 +18,14 @@ public class SlimeInfo : BasicUI
 
     private GameObject gObj;
     private basicslime gObjS;
+    private SlimeManager slimemanager;
+
 //  int k;
     public void Start()
     {
+        slimemanager = GameObject.Find("SlimeManager").GetComponent<SlimeManager>();
+        if (slimemanager)
+            Debug.Log(slimemanager.name);
         NameText = transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         InfoText = transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
         LevelText = transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>();
@@ -42,7 +47,10 @@ public class SlimeInfo : BasicUI
             LevelText.text = string.Format("Level : " + gObjS.level);
             InfoSprite.sprite = gObjS.SO.Sprites[2];
             LevelSlider.value = gObjS.exp;
-            ExpText.text = string.Format(gObjS.exp + " / " + gObjS.MaxExp);
+            if (gObjS.level < gObjS.SlimeMaxLVinfo())
+                ExpText.text = string.Format(gObjS.exp + " / " + gObjS.MaxExp);
+            else
+                ExpText.text = string.Format("Max Level");
             HungrySlider.fillAmount = gObjS.hungryslider.fillAmount;
             HungryText.text = string.Format("Hungry : {0:0.0} / {1:0}", gObjS.hungryindex, gObjS.MaxHungry);
             EvolutionButton.gameObject.SetActive(gObjS.SlimeEvolutionable());
@@ -54,6 +62,16 @@ public class SlimeInfo : BasicUI
     {
         gObj = input;
         gObjS = gObj.GetComponent<basicslime>();
+    }
+    public void Evolutionbutton()
+    {
+        SlimeSO temp = slimemanager.SelectedSlime(gObjS.SO.SlimeId + 1);
+        if (temp)
+        {
+            Destroy(gObj);
+            SlimeManager.RemoveEmpty();
+            slimemanager.AddSlime(temp);
+        }
     }
     public void Editname(string input)
     {

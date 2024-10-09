@@ -10,32 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f76cd81f732cdd4aa424c214b0a67d4, type: 3}
-  m_Name: FireSlime
+  m_Name: MetalSlimeSO
   m_EditorClassIdentifier: 
-  minX: 40
-  minY: 40
-  maxX: 90
-  maxY: 90
-  minMoveTime: 0.5
+  minX: 20
+  minY: 20
+  maxX: 50
+  maxY: 50
+  minMoveTime: 1
   maxMoveTime: 2
-  slimeId: 2
-  mass: 1
-  drag: 4
+  slimeId: 4
+  mass: 2
+  drag: 3
   maxHungry: 70
-  scale: 20
+  scale: 35
   sprites:
-  - {fileID: -1343176307, guid: 11ad43de35cb67246972e96651931243, type: 3}
-  - {fileID: -520142682, guid: 11ad43de35cb67246972e96651931243, type: 3}
-  - {fileID: -842739796, guid: 11ad43de35cb67246972e96651931243, type: 3}
-  - {fileID: 68410378, guid: 11ad43de35cb67246972e96651931243, type: 3}
-  - {fileID: 1874723744, guid: 11ad43de35cb67246972e96651931243, type: 3}
-  - {fileID: -144955014, guid: 11ad43de35cb67246972e96651931243, type: 3}
+  - {fileID: -1200030901, guid: d7415e413622ce6489355460d488e168, type: 3}
+  - {fileID: -901395527, guid: d7415e413622ce6489355460d488e168, type: 3}
+  - {fileID: 1179918920, guid: d7415e413622ce6489355460d488e168, type: 3}
+  - {fileID: -1878000973, guid: d7415e413622ce6489355460d488e168, type: 3}
+  - {fileID: 1289357938, guid: d7415e413622ce6489355460d488e168, type: 3}
+  - {fileID: 1023956297, guid: d7415e413622ce6489355460d488e168, type: 3}
   angleIndex: 30
-  core: {fileID: 11400000, guid: d716cc0e17ecbc0488611a102614a85a, type: 2}
+  core: {fileID: 11400000, guid: 72715a914536525498a7c0d18bc1b507, type: 2}
   basicCore: {fileID: 760934102823754159, guid: d44cf2d252e66264993fa9a4d3d5e129, type: 3}
   hungryslider: {fileID: 2451313328542178044, guid: 7a3bbff2c53b43d4f972953e4e52fa53, type: 3}
   levelSlider: {fileID: 4761465719234393579, guid: 1cfdf56df5afa9f469f67aea1fce6355, type: 3}
-  slimename: Fire Slime
-  slimeinfo: Slime burning brightly, Don't approach it
+  slimename: Metal Slime
+  slimeinfo: Metal!!!
   maxLevel: 2
   hungerCooldown: 0

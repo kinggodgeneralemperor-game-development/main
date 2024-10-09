@@ -21,7 +21,7 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     private void Start()
     {
-        expPoint = 30;
+        expPoint = 50;
         hungryPoint = 10;
     }
     private void Awake()

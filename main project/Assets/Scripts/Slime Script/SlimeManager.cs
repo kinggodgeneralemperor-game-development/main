@@ -16,7 +16,12 @@ public class SlimeManager : MonoBehaviour
         if (SlimeList == null)
             SlimeList = new List<GameObject>();
     }
-
+    public SlimeSO SelectedSlime(int input)
+    {
+        if (input >= slimeSOList.Count)
+            return null;
+        return slimeSOList[input];
+    }
     public SlimeSO RandomSlime()
     {
         int randomslime = Random.Range(0, slimeSOList.Count);
@@ -32,6 +37,27 @@ public class SlimeManager : MonoBehaviour
         GameObject slime = Instantiate(slimeprefab);
         var slimescript = slime.GetComponent<basicslime>();
         slimescript.SO = RandomSlime();
+        slime.transform.position = Vector3.zero;
+        SlimeList.Add(slime);
+        info.IsCollected(slimescript.SO.SlimeId);
+
+        return true;
+    }
+    public bool AddSlime(SlimeSO input)
+    {
+        if (SlimeList.Count >= UpgradeSO.SlimeMax)
+        {
+            Debug.Log("슬라임이 너무 많습니다");
+            return false;
+        }
+        if (!input)
+        {
+            Debug.Log("슬라임이 없습니다");
+            return false;
+        }
+        GameObject slime = Instantiate(slimeprefab);
+        var slimescript = slime.GetComponent<basicslime>();
+        slimescript.SO = input;
         slime.transform.position = Vector3.zero;
         SlimeList.Add(slime);
         info.IsCollected(slimescript.SO.SlimeId);

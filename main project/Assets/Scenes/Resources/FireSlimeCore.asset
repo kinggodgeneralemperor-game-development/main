@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: FireSlimeCore
   m_EditorClassIdentifier: 
   corePrice: 10
-  coreSprite: {fileID: 1585127236, guid: 854f9a442e40f0f4aa176c8b0be6858b, type: 3}
+  coreSprite: {fileID: 485662863, guid: d9902d704ffcbe143894c6449626a835, type: 3}

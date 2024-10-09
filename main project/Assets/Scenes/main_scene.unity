@@ -739,7 +739,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 55114899}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1391113741}
+        m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
+        m_MethodName: Upgrade_Button
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &55114899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1662,7 +1674,7 @@ GameObject:
   - component: {fileID: 147623831}
   - component: {fileID: 147623830}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: SlimeMaxLVButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1732,10 +1744,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 80859de34ac69ee4c9ea1e4cf4ba7e9a, type: 2}
-        m_TargetAssemblyTypeName: UpgradeSO, Assembly-CSharp
-        m_MethodName: slimeMaxlevelup
-        m_Mode: 1
+      - m_Target: {fileID: 1391113741}
+        m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
+        m_MethodName: Upgrade_Button
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5329,7 +5341,7 @@ GameObject:
   - component: {fileID: 486199167}
   - component: {fileID: 486199166}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: SlimeMaxExpLvText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5518,7 +5530,7 @@ GameObject:
   - component: {fileID: 522517612}
   - component: {fileID: 522517611}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Slime Evolution Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5587,7 +5599,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 522517612}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9151294928107470989}
+        m_TargetAssemblyTypeName: SlimeInfo, Assembly-CSharp
+        m_MethodName: Evolutionbutton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &522517612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5713,7 +5737,7 @@ GameObject:
   - component: {fileID: 542735637}
   - component: {fileID: 542735636}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: SlimeMaxLVText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6278,7 +6302,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 585511038}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1391113741}
+        m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
+        m_MethodName: Upgrade_Button
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &585511038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8582,7 +8618,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 794650495}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1391113741}
+        m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
+        m_MethodName: Upgrade_Button
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &794650495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9454,8 +9502,10 @@ MonoBehaviour:
   slimeSOList:
   - {fileID: 11400000, guid: 66b4a094dddbea24284ca4ae199ca7ba, type: 2}
   - {fileID: 11400000, guid: 28d385982073d5c4faa88145d09b60df, type: 2}
-  - {fileID: 11400000, guid: 76d7850ef1b4adf489c7dd5cde5e4f95, type: 2}
   - {fileID: 11400000, guid: 2de19e17ce04e2c4d983af3a3d92007f, type: 2}
+  - {fileID: 11400000, guid: daa7cb8944d6e4b4fa3bea89d36ab235, type: 2}
+  - {fileID: 11400000, guid: 48857a11d48c2bc47a247ae46b601c84, type: 2}
+  - {fileID: 11400000, guid: 76d7850ef1b4adf489c7dd5cde5e4f95, type: 2}
 --- !u!4 &887285032
 Transform:
   m_ObjectHideFlags: 0
@@ -12872,7 +12922,7 @@ GameObject:
   - component: {fileID: 1227167388}
   - component: {fileID: 1227167387}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: HungerCoolDownLVText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14494,6 +14544,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeSO: {fileID: 11400000, guid: 80859de34ac69ee4c9ea1e4cf4ba7e9a, type: 2}
   UpgradeInfoSO: {fileID: 11400000, guid: 2b8ac5529d7d4544a89ae9f281e7f4ec, type: 2}
+  buttonsText:
+  - {fileID: 542735636}
+  - {fileID: 1227167387}
+  - {fileID: 486199166}
+  errorUI: {fileID: 962020640}
 --- !u!1 &1426718155
 GameObject:
   m_ObjectHideFlags: 0
@@ -15079,7 +15134,7 @@ GameObject:
   - component: {fileID: 1490566427}
   - component: {fileID: 1490566426}
   m_Layer: 5
-  m_Name: Button (Legacy) (2)
+  m_Name: SlimeMaxExpLVButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15149,14 +15204,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 80859de34ac69ee4c9ea1e4cf4ba7e9a, type: 2}
-        m_TargetAssemblyTypeName: UpgradeSO, Assembly-CSharp
-        m_MethodName: SlimeMaxExplevelup
-        m_Mode: 1
+      - m_Target: {fileID: 1391113741}
+        m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
+        m_MethodName: Upgrade_Button
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -15421,7 +15476,7 @@ GameObject:
   - component: {fileID: 1523810865}
   - component: {fileID: 1523810864}
   m_Layer: 5
-  m_Name: Button (Legacy) (1)
+  m_Name: HungerCoolDownLVButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15491,14 +15546,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 80859de34ac69ee4c9ea1e4cf4ba7e9a, type: 2}
-        m_TargetAssemblyTypeName: UpgradeSO, Assembly-CSharp
-        m_MethodName: HungerCooldownlevelup
-        m_Mode: 1
+      - m_Target: {fileID: 1391113741}
+        m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
+        m_MethodName: Upgrade_Button
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -17957,8 +18012,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1165155638}
   m_HandleRect: {fileID: 1165155637}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.4365139
+  m_Value: -0.000000062719785
+  m_Size: 0.43651393
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

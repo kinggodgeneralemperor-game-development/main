@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd31e6c708ce5e146a37b2540939f922, type: 3}
-  m_Name: NormalSlimecore
+  m_Name: NatureSlimeCoreSO
   m_EditorClassIdentifier: 
-  corePrice: 5
-  coreSprite: {fileID: 1593565121, guid: d9902d704ffcbe143894c6449626a835, type: 3}
+  corePrice: 25
+  coreSprite: {fileID: 2126930013, guid: d9902d704ffcbe143894c6449626a835, type: 3}

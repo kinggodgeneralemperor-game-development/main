@@ -19,4 +19,11 @@ public class GoldManager : MonoBehaviour
     {
         return currentGold;
     }
+    public static bool CheckGold(int input)
+    {
+        if (input <= currentGold)
+            return true;
+        else
+            return false;
+    }
 }

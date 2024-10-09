@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GroundSlimeCore
   m_EditorClassIdentifier: 
   corePrice: 20
-  coreSprite: {fileID: -344908232, guid: 854f9a442e40f0f4aa176c8b0be6858b, type: 3}
+  coreSprite: {fileID: -1296412123, guid: d9902d704ffcbe143894c6449626a835, type: 3}
