@@ -9,14 +9,9 @@ public class FarmUI : BasicUI
     {
         cameraTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
     }
-
-    void Start()
-    {
-        ActiveFalse();
-    }
     public void CameraMove()
     {
-        if (cameraTransform.position.x == 20) gameObject.SetActive(true);
-        else gameObject.SetActive(false);
+        if (cameraTransform.position.x == 20) gameObject.SetActive(false);
+        else gameObject.SetActive(true);
     }
 }

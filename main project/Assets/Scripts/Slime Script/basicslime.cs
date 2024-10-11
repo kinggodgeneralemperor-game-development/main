@@ -26,6 +26,7 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
     public RectTransform hungrysliderRectTransform;
     public RectTransform slimeCanvasRectTransform;
     public Canvas slimeCanvas;
+    private int[] Eats = new int[6];
 
     //UpgradeSO의 값과 곱해서 최대값을 계산
     private const int MaxHungryValue = 100;
@@ -158,18 +159,22 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
         if (eventData.pointerDrag.tag != "Food") return;
         if(DrawChange.getFoodCount(ItemDrag.getFoodNum()) <=0) return;
 
-        ItemDrag input = eventData.pointerDrag.GetComponent<ItemDrag>();
-        if (hungryindex < MaxHungry - input.hungryPoint)
+        if (ItemDrag.getFoodNum() == 0 || ItemDrag.getFoodNum() + 1 == SO.SlimeId)
         {
-            hungryindex += input.hungryPoint;
-            Debug.Log("냠");
-            if(!(level >= SO.MaxLevel))
-                exp += input.expPoint;
-            var coreScript = Instantiate(corePrefab, (Vector3)slimeRigidbody.position + Vector3.back, Quaternion.identity).GetComponent<BasicCore>();
-            coreScript.SO = SO.Core;
-            DrawChange.useFood(ItemDrag.getFoodNum());
+            ItemDrag input = eventData.pointerDrag.GetComponent<ItemDrag>();
+            if (hungryindex < MaxHungry - input.hungryPoint)
+            {
+                hungryindex += input.hungryPoint;
+                Debug.Log("냠");
+                if (!(level >= SO.MaxLevel))
+                    exp += input.expPoint;
+                var coreScript = Instantiate(corePrefab, (Vector3)slimeRigidbody.position + Vector3.back, Quaternion.identity).GetComponent<BasicCore>();
+                coreScript.SO = SO.Core;
+                DrawChange.useFood(ItemDrag.getFoodNum());
+                Eats[ItemDrag.getFoodNum()]++;
+            }
+            else Debug.Log("배부름");
         }
-        else Debug.Log("배부름");
     }
 
     //temp
