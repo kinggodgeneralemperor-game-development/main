@@ -36,6 +36,8 @@ public class UpgradeManager : MonoBehaviour
         switch (input)
         {
             case 0:
+                if (UpgradeSO.SlimeMaxLV >= UpgradeInfoSO.SlimeMax.Count - 1)
+                    break;
                 if (GoldManager.CheckGold(UpgradeSO.SlimeMaxPrice))
                 {
                     GoldManager.UpdateGold(-UpgradeSO.SlimeMaxPrice);
@@ -45,6 +47,8 @@ public class UpgradeManager : MonoBehaviour
                     errorUI.SetActive(true);
                 break;
             case 1:
+                if (UpgradeSO.HungerCooldownLV >= UpgradeInfoSO.HungerCooldown.Count - 1)
+                    break;
                 if (GoldManager.CheckGold(UpgradeSO.HungerCooldownPrice))
                 {
                     GoldManager.UpdateGold(-UpgradeSO.HungerCooldownPrice);
@@ -54,6 +58,8 @@ public class UpgradeManager : MonoBehaviour
                     errorUI.SetActive(true);
                 break;
             case 2:
+                if (UpgradeSO.SlimeMaxExpLV >= UpgradeInfoSO.SlimeMaxExp.Count - 1)
+                    break;
                 if (GoldManager.CheckGold(UpgradeSO.SlimeMaxExpPrice))
                 {
                     GoldManager.UpdateGold(-UpgradeSO.SlimeMaxExpPrice);

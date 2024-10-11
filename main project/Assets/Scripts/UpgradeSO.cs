@@ -15,7 +15,7 @@ public class UpgradeSO : ScriptableObject
     [SerializeField] private bool autoFeeding;
     [SerializeField] private bool autoCore;
     public int SlimeMaxLV { set { slimeMaxLV = value; if(OnChanged != null) OnChanged.Invoke(this, EventArgs.Empty);} get { return slimeMaxLV; } }
-    public int HungerCooldownLV { set { hungerCooldownLV = value; if (OnChanged != null) OnChanged.Invoke(this, EventArgs.Empty); Debug.Log("aaa"); } get { return hungerCooldownLV; } }
+    public int HungerCooldownLV { set { hungerCooldownLV = value; if (OnChanged != null) OnChanged.Invoke(this, EventArgs.Empty);} get { return hungerCooldownLV; } }
     public int SlimeMaxExpLV { set { slimeMaxExpLV = value; if (OnChanged != null) OnChanged.Invoke(this, EventArgs.Empty); } get { return slimeMaxExpLV; } }
    
 

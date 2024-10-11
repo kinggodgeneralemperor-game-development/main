@@ -231,4 +231,10 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
     {
         return SO.MaxLevel;
     }
+    private void OnDestroy()
+    {
+        Debug.Log("fffff");
+        SO.OnChanged -= Slime_OnChanged;
+        UpgradeSO.OnChanged -= Slime_OnChanged;
+    }
 }
