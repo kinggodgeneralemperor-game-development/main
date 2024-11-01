@@ -207,7 +207,6 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
     //슬라임 이벤트 시그니처
     private void Slime_OnChanged(object sender, EventArgs eventArgs)
     {
-        Debug.Log("qkRnla");
         gameObject.transform.localScale = new Vector2(SO.Scale, SO.Scale);
         if (hungryindex >= MaxHungry) hungryindex = MaxHungry;
     }
@@ -233,7 +232,6 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
     }
     private void OnDestroy()
     {
-        Debug.Log("fffff");
         SO.OnChanged -= Slime_OnChanged;
         UpgradeSO.OnChanged -= Slime_OnChanged;
     }
