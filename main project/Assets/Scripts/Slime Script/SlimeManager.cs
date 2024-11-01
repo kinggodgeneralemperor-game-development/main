@@ -24,7 +24,8 @@ public class SlimeManager : MonoBehaviour
     }
     public SlimeSO RandomSlime()
     {
-        int randomslime = Random.Range(0, slimeSOList.Count);
+        //int randomslime = Random.Range(0, slimeSOList.Count);
+        int randomslime = 0;
         return slimeSOList[randomslime];
     }
     public bool AddSlime()
@@ -73,7 +74,10 @@ public class SlimeManager : MonoBehaviour
         Debug.Log(SlimeList.Count);
         //RemoveEmpty();
     }
-
+    public int GetSlimeId()
+    {
+        return slimeData.SlimeId;
+    }
     public static int GetSlimeNumber()
     {
         return SlimeList.Count;

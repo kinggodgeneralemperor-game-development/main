@@ -159,7 +159,7 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
         if (eventData.pointerDrag.tag != "Food") return;
         if(DrawChange.getFoodCount(ItemDrag.getFoodNum()) <=0) return;
 
-        if (ItemDrag.getFoodNum() == 0 || ItemDrag.getFoodNum() + 1 == SO.SlimeId)
+        if (SO.SlimeId == 0 || ItemDrag.getFoodNum() + 1 == SO.SlimeId)
         {
             ItemDrag input = eventData.pointerDrag.GetComponent<ItemDrag>();
             if (hungryindex < MaxHungry - input.hungryPoint)
