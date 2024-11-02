@@ -30,6 +30,11 @@ public class UpgradeManager : MonoBehaviour
             buttonsText[2].text = string.Format("SlimeMaxExpLV : {0:00}\nSlimeMaxExp Price : {1:000}", UpgradeSO.SlimeMaxExpLV + 1, UpgradeSO.SlimeMaxExpPrice);
         else
             buttonsText[2].text = string.Format("SlimeMaxExpLV : {0:00}\n업그레이드 완료", UpgradeSO.SlimeMaxExpLV + 1);
+
+        if (UpgradeSO.AutoCore)
+            buttonsText[3].text = string.Format("AutoCore enabled");
+        else
+            buttonsText[3].text = string.Format("AutoCore disabled\nAutoCore Price : {0:000}", UpgradeInfoSO.AutoCorePrice);
     }
     public void Upgrade_Button(int input)
     {
@@ -64,6 +69,17 @@ public class UpgradeManager : MonoBehaviour
                 {
                     GoldManager.UpdateGold(-UpgradeSO.SlimeMaxExpPrice);
                     UpgradeSO.SlimeMaxExplevelup();
+                }
+                else
+                    errorUI.SetActive(true);
+                break;
+            case 3:
+                if (UpgradeSO.AutoCore)
+                    break;
+                if (GoldManager.CheckGold(UpgradeInfoSO.AutoCorePrice))
+                {
+                    GoldManager.UpdateGold(-UpgradeInfoSO.AutoCorePrice);
+                    UpgradeSO.AutoCorelevelup();
                 }
                 else
                     errorUI.SetActive(true);

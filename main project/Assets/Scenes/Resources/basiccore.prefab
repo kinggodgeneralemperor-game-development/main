@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3093754134410814128}
   m_Layer: 7
   m_Name: basiccore
-  m_TagString: New tag
+  m_TagString: core
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,10 +123,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea3803001f0a345ab813499766073e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeSO: {fileID: 11400000, guid: 80859de34ac69ee4c9ea1e4cf4ba7e9a, type: 2}
   coreRigidbody: {fileID: 0}
   coreSpriteRenderer: {fileID: 0}
-  corePrice: 0
+  temp: {fileID: 0}
   SO: {fileID: 0}
+  AutoCore: 0
 --- !u!212 &3093754134410814128
 SpriteRenderer:
   m_ObjectHideFlags: 0

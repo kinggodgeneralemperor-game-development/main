@@ -7,7 +7,7 @@ public class GoldManager : MonoBehaviour
     private static int currentGold;
     void Start()        //currentGold를 세이브파일 따라서 바꾸기
     {
-        currentGold = 100;
+        currentGold = 60000;
     }
 
     public static void UpdateGold(int inputGold)    //골드를 더하거나 뺌

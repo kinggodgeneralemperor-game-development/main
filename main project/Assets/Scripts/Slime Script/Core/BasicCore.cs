@@ -6,10 +6,12 @@ using UnityEngine.EventSystems;
 
 public class BasicCore : MonoBehaviour, IPointerClickHandler
 {
+    [SerializeField] private UpgradeSO upgradeSO;
     public Rigidbody2D coreRigidbody;
     public SpriteRenderer coreSpriteRenderer;
     public Sprite temp;
-    public CoreSO SO; 
+    public CoreSO SO;
+    public bool AutoCore;
     public void Start()
     {
         coreRigidbody = GetComponent<Rigidbody2D>();
@@ -18,7 +20,10 @@ public class BasicCore : MonoBehaviour, IPointerClickHandler
         coreRigidbody.drag = 3;
         coreSpriteRenderer.sprite = SO.CoreSprite;
         SO.OnChanged += Slime_Core_OnChanged;
+        AutoCore = upgradeSO.AutoCore;
 
+        if (AutoCore)
+            Invoke("CoreClick", 2);
         Invoke("RemoveGravity", 1);
     }
     public void RemoveGravity()
@@ -41,6 +46,10 @@ public class BasicCore : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         CoreClick();
+    }
+
+    private void Update()
+    {
     }
     private void Slime_Core_OnChanged(object sender, EventArgs eventArgs)
     {
