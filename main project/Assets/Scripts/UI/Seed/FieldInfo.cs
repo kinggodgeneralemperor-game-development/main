@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,8 +22,8 @@ public class FieldInfo : MonoBehaviour
     public GameObject MainStorage;
     public Info info;
     int seedNumber;
-    Text plantName;
-    Text timer;
+    TextMeshProUGUI plantName;
+    TextMeshProUGUI timer;
     Image plantImage;
     Image fieldImage;
 
@@ -53,8 +54,8 @@ public class FieldInfo : MonoBehaviour
     }
     void Start()
     {
-        plantName = transform.GetChild(1).gameObject.GetComponent<Text>();
-        timer = transform.GetChild(2).gameObject.GetComponent<Text>();
+        plantName = transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
+        timer = transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>();
         plantImage = transform.GetChild(0).gameObject.GetComponent<Image>();
         fieldImage = gameObject.GetComponent<Image>();
         trans = transform.GetChild(0).gameObject.GetComponent<RectTransform>();

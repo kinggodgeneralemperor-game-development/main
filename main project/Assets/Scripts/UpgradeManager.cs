@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 public class UpgradeManager : MonoBehaviour
 {
     [SerializeField] UpgradeSO UpgradeSO;
     [SerializeField] UpgradeInfoSO UpgradeInfoSO;
-    [SerializeField] List<Text> buttonsText;
+    [SerializeField] List<TextMeshProUGUI> buttonsText;
     [SerializeField] GameObject errorUI;
     private void Start()
     {

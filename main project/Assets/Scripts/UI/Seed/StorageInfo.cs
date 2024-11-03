@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class StorageInfo : MonoBehaviour
 {
-    private static Text[] Text = new Text[5];
+    private static TextMeshProUGUI[] Text = new TextMeshProUGUI[5];
     private static string[] Name = new string[5];
 
     void Awake()
     {
         for(int i = 0; i < 5; ++i)
-            Text[i] = transform.GetChild(i).transform.GetChild(1).gameObject.GetComponent<Text>();
+            Text[i] = transform.GetChild(i).transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
 
         Name[0] = "¼ö¹Ú ¾¾¾Ñ x";
         Name[1] = "Åä¸¶Åä ¾¾¾Ñ x";
