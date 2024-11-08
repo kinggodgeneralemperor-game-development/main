@@ -23,6 +23,10 @@ public class UpgradeInfoSO : ScriptableObject
     public int AutoFeedingPrice { get { return autoFeedingPrice; } }
     public int AutoCorePrice { get { return autoCorePrice; } }
 
+    public int SlimeUpgradeLVSum()
+    {
+        return (SlimeMax.Count + HungerCooldown.Count + slimeMaxExp.Count + 1); //1 == autocoreprice
+    }
     //작물 강화
     [SerializeField] private List<int> betterCrops;
     [SerializeField] private List<int> betterCropsPrice;
@@ -43,4 +47,14 @@ public class UpgradeInfoSO : ScriptableObject
     public List<int> GroundMax { get { return groundMax; } }
     public List<int> GroundMaxPrice { get { return groundMaxPrice; } }
     public int AutoHarvestPrice { get { return autoHarvestPrice; } }
+
+    public int FarmUpgradeLVSum()
+    {
+        return (betterCrops.Count + fasterCropsGrow.Count + wetGround.Count + groundMax.Count + 1); //1 == autoharvestprice
+    }
+
+    public int UpgradeLVSum()
+    {
+        return SlimeUpgradeLVSum() + FarmUpgradeLVSum();
+    }
 }

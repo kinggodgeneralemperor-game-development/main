@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: UpgradeSO
   m_EditorClassIdentifier: 
   UpgradeInfo: {fileID: 11400000, guid: 2b8ac5529d7d4544a89ae9f281e7f4ec, type: 2}
-  slimeMaxLV: 8
-  hungerCooldownLV: 1
-  slimeMaxExpLV: 5
+  slimeMaxLV: 0
+  hungerCooldownLV: 0
+  slimeMaxExpLV: 0
   autoFeeding: 0
-  autoCore: 1
+  autoCore: 0
   betterCropsLV: 0
   fasterCropsGrowLV: 0
   wetGroundLV: 0

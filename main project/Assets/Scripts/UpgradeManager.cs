@@ -36,6 +36,7 @@ public class UpgradeManager : MonoBehaviour
             buttonsText[3].text = string.Format("AutoCore enabled");
         else
             buttonsText[3].text = string.Format("AutoCore disabled\nAutoCore Price : {0:000}", UpgradeInfoSO.AutoCorePrice);
+        AchievementManager.UpdateUpgradeAchievement(UpgradeSO.UpgradeLVSum());
     }
     public void Upgrade_Button(int input)
     {
