@@ -62,7 +62,7 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
         slimeRigidbody.drag = SO.Drag;
         slimeRigidbody.gravityScale = 0;
         hungryindex = 0;
-        level = 0;
+        level = 1;
         exp = 0;
         SO.OnChanged += Slime_OnChanged;
         UpgradeSO = Resources.Load<UpgradeSO>("UpgradeSO");
@@ -170,6 +170,7 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
                     exp += input.expPoint;
                 var coreScript = Instantiate(corePrefab, (Vector3)slimeRigidbody.position + Vector3.back, Quaternion.identity).GetComponent<BasicCore>();
                 coreScript.SO = SO.Core;
+                coreScript.CoreLV = level;
                 DrawChange.useFood(ItemDrag.getFoodNum());
                 Eats[ItemDrag.getFoodNum()]++;
             }

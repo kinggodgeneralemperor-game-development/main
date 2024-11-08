@@ -10,6 +10,8 @@ public class ModifyCollection : MonoBehaviour
     public GameObject SlimeObject;
     public GameObject FoodObject;
     public Sprite newSprite;
+    public static int UnlockedObjects = 0;
+        
     public void ChangeInfoUI(int num)
     {
         //slime
@@ -17,7 +19,12 @@ public class ModifyCollection : MonoBehaviour
         {
             Image image = SlimeObject.transform.GetChild(num).GetComponent<Image>();
             image.sprite = newSprite;
-            SlimeObject.transform.GetChild(num).transform.GetChild(0).gameObject.SetActive(true); //slimeImage active
+            if (SlimeObject.transform.GetChild(num).transform.GetChild(0).gameObject.activeSelf == false)
+            {
+                UnlockedObjects++;
+                AchievementManager.UpdateInfoAchievement(UnlockedObjects);
+                SlimeObject.transform.GetChild(num).transform.GetChild(0).gameObject.SetActive(true); //slimeImage active
+            }
         }
 
         //food
@@ -25,7 +32,13 @@ public class ModifyCollection : MonoBehaviour
         {
             Image image = FoodObject.transform.GetChild(num - 6).GetComponent<Image>();
             image.sprite = newSprite;
-            FoodObject.transform.GetChild(num - 6).transform.GetChild(0).gameObject.SetActive(true);
+            if (FoodObject.transform.GetChild(num - 6).transform.GetChild(0).gameObject.activeSelf == false)
+            {
+                UnlockedObjects++;
+                AchievementManager.UpdateInfoAchievement(UnlockedObjects);
+                FoodObject.transform.GetChild(num - 6).transform.GetChild(0).gameObject.SetActive(true);
+            }
         }
     }
+
 }

@@ -8,9 +8,11 @@ public class AchievementManager : MonoBehaviour
     [SerializeField] UpgradeInfoSO UpgradeInfoSO;
     public static UpgradeInfoSO upgradeInfoSO;
     public Slider AchievementSlider;
-    public GameObject CollectionManager;
-    public static float UpgradeAchievement;
+    public static float UpgradeAchievement = 0;
+    public static float InfoAchievement = 0;
     public static int CurrentAchievement;
+
+    public GameObject errorui;
     private void Start()
     {
         upgradeInfoSO = UpgradeInfoSO;
@@ -27,9 +29,27 @@ public class AchievementManager : MonoBehaviour
         UpgradeAchievement = (float)input / (float)(upgradeInfoSO.UpgradeLVSum());
         Debug.Log(UpgradeAchievement);
     }
+
+    public static void UpdateInfoAchievement(int input)
+    {
+        InfoAchievement = (float)input / (float)11;
+    }
     public void UpdateAchievementSlider()
     {
-        AchievementSlider.value = UpgradeAchievement * (float)100;
+        AchievementSlider.value = (UpgradeAchievement + InfoAchievement) * (float)100 / (float)2;
         Debug.Log(UpgradeAchievement);
+    }
+
+    public void PayAchievement()
+    {
+        if (GoldManager.CheckGold(1000000))
+        {
+            GoldManager.UpdateGold(-1000000);
+            //¿£µù
+        }
+        else
+        {
+            errorui.SetActive(true);
+        }
     }
 }

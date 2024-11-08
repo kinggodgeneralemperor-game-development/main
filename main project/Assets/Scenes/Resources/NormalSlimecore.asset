@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd31e6c708ce5e146a37b2540939f922, type: 3}
   m_Name: NormalSlimecore
   m_EditorClassIdentifier: 
-  corePrice: 5
+  corePrice: 1
   coreSprite: {fileID: 1593565121, guid: d9902d704ffcbe143894c6449626a835, type: 3}

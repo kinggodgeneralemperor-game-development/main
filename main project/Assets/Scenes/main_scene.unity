@@ -8902,7 +8902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeInfoSO: {fileID: 11400000, guid: 2b8ac5529d7d4544a89ae9f281e7f4ec, type: 2}
   AchievementSlider: {fileID: 977773168}
-  CollectionManager: {fileID: 0}
+  errorui: {fileID: 962020640}
 --- !u!1 &777925746
 GameObject:
   m_ObjectHideFlags: 0

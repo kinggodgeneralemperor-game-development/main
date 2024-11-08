@@ -11,6 +11,7 @@ public class BasicCore : MonoBehaviour, IPointerClickHandler
     public SpriteRenderer coreSpriteRenderer;
     public Sprite temp;
     public CoreSO SO;
+    public int CoreLV;
     public bool AutoCore;
     public void Start()
     {
@@ -21,7 +22,7 @@ public class BasicCore : MonoBehaviour, IPointerClickHandler
         coreSpriteRenderer.sprite = SO.CoreSprite;
         SO.OnChanged += Slime_Core_OnChanged;
         AutoCore = upgradeSO.AutoCore;
-
+        CoreLV = 1;
         if (AutoCore)
             Invoke("CoreClick", 2);
         Invoke("RemoveGravity", 1);
@@ -41,7 +42,7 @@ public class BasicCore : MonoBehaviour, IPointerClickHandler
     public void CoreClick()
     {
         Destroy(this.gameObject);
-        GoldManager.UpdateGold(SO.CorePrice);
+        GoldManager.UpdateGold(SO.CorePrice * CoreLV);
     }
     public void OnPointerClick(PointerEventData eventData)
     {
