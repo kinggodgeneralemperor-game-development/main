@@ -28,7 +28,7 @@ public class UpgradeSO : ScriptableObject
     public bool AutoFeeding { set { autoFeeding = value; if (OnChanged != null) OnChanged.Invoke(this, EventArgs.Empty); } get { return autoFeeding; } }
     public bool AutoCore { set { autoCore = value; if (OnChanged != null) OnChanged.Invoke(this, EventArgs.Empty); } get { return autoCore; } }
 
-    public void slimeMaxlevelup() { if (SlimeMaxLV < UpgradeInfo.SlimeMax.Count-1) SlimeMaxLV++;}
+    public void slimeMaxlevelup() { if (SlimeMaxLV < UpgradeInfo.SlimeMax.Count-1) SlimeMaxLV++; }
     public void HungerCooldownlevelup() { if (HungerCooldownLV < UpgradeInfo.HungerCooldown.Count-1) HungerCooldownLV++; }
     public void SlimeMaxExplevelup() { if (SlimeMaxExpLV < UpgradeInfo.SlimeMaxExp.Count-1) SlimeMaxExpLV++; }
     public void AutoFeedinglevelup() { AutoFeeding = true; }
@@ -56,6 +56,12 @@ public class UpgradeSO : ScriptableObject
     public int WetGroundPrice { get { return UpgradeInfo.WetGroundPrice[WetGroundLV]; } }
     public int GroundMax { get { return UpgradeInfo.GroundMax[GroundMaxLV]; } }
     public int GroundMaxPrice { get { return UpgradeInfo.GroundMaxPrice[GroundMaxLV]; } }
+
+
+    public void betterCropslevelup() { if(BetterCropsLV < UpgradeInfo.BetterCrops.Count-1) BetterCropsLV++; }
+    public void fasterCropsGrowlevelup() { if (fasterCropsGrowLV < UpgradeInfo.FasterCropsGrow.Count - 1) fasterCropsGrowLV++; }
+    public void wetGroundlevelup() { if (wetGroundLV < UpgradeInfo.WetGround.Count - 1) wetGroundLV++; }
+    public void groundMaxlevelup() { if (groundMaxLV < UpgradeInfo.GroundMax.Count - 1) groundMaxLV++; }
 
 
     public event EventHandler OnChanged;

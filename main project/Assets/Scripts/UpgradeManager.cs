@@ -36,12 +36,34 @@ public class UpgradeManager : MonoBehaviour
             buttonsText[3].text = string.Format("AutoCore enabled");
         else
             buttonsText[3].text = string.Format("AutoCore disabled\nAutoCore Price : {0:000}", UpgradeInfoSO.AutoCorePrice);
+
+        if (UpgradeSO.BetterCropsLV < UpgradeInfoSO.BetterCrops.Count - 1)
+            buttonsText[4].text = string.Format("BetterCropsLV : {0:00}\nBetterCropsLV Price : {1:000}", UpgradeSO.BetterCropsLV + 1, UpgradeSO.BetterCropsPrice);
+        else
+            buttonsText[4].text = string.Format("BetterCropsLV : {0:00}\n업그레이드 완료", UpgradeSO.BetterCropsLV + 1);
+
+        if (UpgradeSO.FasterCropsGrowLV < UpgradeInfoSO.FasterCropsGrow.Count - 1)
+            buttonsText[5].text = string.Format("FasterCropsGrowLV : {0:00}\nFasterCropsGrowLV  Price : {1:000}", UpgradeSO.FasterCropsGrowLV + 1, UpgradeSO.FasterCropsGrowPrice);
+        else
+            buttonsText[5].text = string.Format("FasterCropsGrowLV  : {0:00}\n업그레이드 완료", UpgradeSO.FasterCropsGrowLV + 1);
+
+        if (UpgradeSO.WetGroundLV < UpgradeInfoSO.WetGround.Count - 1)
+            buttonsText[6].text = string.Format("WetGroundLV : {0:00}\nWetGroundLV Price : {1:000}", UpgradeSO.WetGroundLV + 1, UpgradeSO.WetGroundPrice);
+        else
+            buttonsText[6].text = string.Format("WetGroundLV : {0:00}\n업그레이드 완료", UpgradeSO.WetGroundLV + 1);
+
+        if (UpgradeSO.GroundMaxLV < UpgradeInfoSO.GroundMax.Count - 1)
+            buttonsText[7].text = string.Format("GroundMaxLV : {0:00}\nGroundMaxLV Price : {1:000}", UpgradeSO.GroundMaxLV + 1, UpgradeSO.GroundMaxPrice);
+        else
+            buttonsText[7].text = string.Format("GroundMaxLV : {0:00}\n업그레이드 완료", UpgradeSO.GroundMaxLV + 1);
+
+
     }
     public void Upgrade_Button(int input)
     {
         switch (input)
         {
-            case 0:
+            case 0: //슬라임 수용
                 if (UpgradeSO.SlimeMaxLV >= UpgradeInfoSO.SlimeMax.Count - 1)
                     break;
                 if (GoldManager.CheckGold(UpgradeSO.SlimeMaxPrice))
@@ -52,7 +74,7 @@ public class UpgradeManager : MonoBehaviour
                 else
                     errorUI.SetActive(true);
                 break;
-            case 1:
+            case 1: //배고픔 쿨
                 if (UpgradeSO.HungerCooldownLV >= UpgradeInfoSO.HungerCooldown.Count - 1)
                     break;
                 if (GoldManager.CheckGold(UpgradeSO.HungerCooldownPrice))
@@ -63,7 +85,7 @@ public class UpgradeManager : MonoBehaviour
                 else
                     errorUI.SetActive(true);
                 break;
-            case 2:
+            case 2://빠른 성장 (슬라임)
                 if (UpgradeSO.SlimeMaxExpLV >= UpgradeInfoSO.SlimeMaxExp.Count - 1)
                     break;
                 if (GoldManager.CheckGold(UpgradeSO.SlimeMaxExpPrice))
@@ -74,7 +96,7 @@ public class UpgradeManager : MonoBehaviour
                 else
                     errorUI.SetActive(true);
                 break;
-            case 3:
+            case 3://코어 수집
                 if (UpgradeSO.AutoCore)
                     break;
                 if (GoldManager.CheckGold(UpgradeInfoSO.AutoCorePrice))
@@ -85,6 +107,52 @@ public class UpgradeManager : MonoBehaviour
                 else
                     errorUI.SetActive(true);
                 break;
+            case 4: //2배 음식 수확
+                if (UpgradeSO.BetterCropsLV >= UpgradeInfoSO.BetterCrops.Count - 1)
+                    break;
+                if (GoldManager.CheckGold(UpgradeSO.BetterCropsPrice))
+                {
+                    GoldManager.UpdateGold(-UpgradeSO.BetterCropsPrice);
+                    UpgradeSO.betterCropslevelup();
+                }
+                else
+                    errorUI.SetActive(true);
+                break;
+            case 5: //빠른 성장 (농장)
+                if (UpgradeSO.FasterCropsGrowLV >= UpgradeInfoSO.FasterCropsGrow.Count - 1)
+                    break;
+                if (GoldManager.CheckGold(UpgradeSO.FasterCropsGrowPrice))
+                {
+                    GoldManager.UpdateGold(-UpgradeSO.FasterCropsGrowPrice);
+                    UpgradeSO.fasterCropsGrowlevelup();
+                }
+                else
+                    errorUI.SetActive(true);
+                break;
+            case 6: //물주기
+                if (UpgradeSO.WetGroundLV >= UpgradeInfoSO.WetGround.Count - 1)
+                    break;
+                if (GoldManager.CheckGold(UpgradeSO.WetGroundPrice))
+                {
+                    GoldManager.UpdateGold(-UpgradeSO.WetGroundPrice);
+                    UpgradeSO.wetGroundlevelup();
+                }
+                else
+                    errorUI.SetActive(true);
+                break;
+            case 7: //넓은 농장
+                if (UpgradeSO.GroundMaxLV>= UpgradeInfoSO.GroundMax.Count - 1)
+                    break;
+                if (GoldManager.CheckGold(UpgradeSO.GroundMaxPrice))
+                {
+                    GoldManager.UpdateGold(-UpgradeSO.GroundMaxPrice);
+                    UpgradeSO.groundMaxlevelup();
+                }
+                else
+                    errorUI.SetActive(true);
+                break;
         }
+
+
     }
 }

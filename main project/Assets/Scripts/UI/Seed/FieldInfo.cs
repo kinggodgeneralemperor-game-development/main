@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class FieldInfo : MonoBehaviour
 {
+    [SerializeField] UpgradeSO UpgradeSO;
+
     public enum Grown
     {
         NotPlanted,
@@ -28,9 +30,15 @@ public class FieldInfo : MonoBehaviour
     Image fieldImage;
 
     float watertime;
+    static float watering = 3;
     float maxTime;
     float plantTime = 0;
     Grown IsPlanted = Grown.NotPlanted;
+
+    public void UpdateWater()
+    {
+        watering = UpgradeSO.WetGround;
+    }
 
     void Awake()
     {
@@ -84,7 +92,7 @@ public class FieldInfo : MonoBehaviour
         }
         else if (IsPlanted == Grown.IsPlanted)
         {
-            watertime = 3;
+            watertime = watering;
             //UI »ìÂ¦ ¾îµÓ°Ô º¯°æ : ¹° ¸ÔÀº ¶¥ ´À³¦À¸·Î
             fieldImage.color = new Color(0.8f, 0.8f, 0.8f);
         }
