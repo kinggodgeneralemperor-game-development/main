@@ -67,9 +67,9 @@ public class UpgradeSO : ScriptableObject
     }
 
     public void betterCropslevelup() { if(BetterCropsLV < UpgradeInfo.BetterCrops.Count-1) BetterCropsLV++; }
-    public void fasterCropsGrowlevelup() { if (fasterCropsGrowLV < UpgradeInfo.FasterCropsGrow.Count - 1) fasterCropsGrowLV++; }
-    public void wetGroundlevelup() { if (wetGroundLV < UpgradeInfo.WetGround.Count - 1) wetGroundLV++; }
-    public void groundMaxlevelup() { if (groundMaxLV < UpgradeInfo.GroundMax.Count - 1) groundMaxLV++; }
+    public void fasterCropsGrowlevelup() { if (fasterCropsGrowLV < UpgradeInfo.FasterCropsGrow.Count - 1) FasterCropsGrowLV++; }
+    public void wetGroundlevelup() { if (wetGroundLV < UpgradeInfo.WetGround.Count - 1) WetGroundLV++; }
+    public void groundMaxlevelup() { if (groundMaxLV < UpgradeInfo.GroundMax.Count - 1) GroundMaxLV++; }
 
 
     public int UpgradeLVSum()
