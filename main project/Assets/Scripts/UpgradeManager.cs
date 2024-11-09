@@ -57,7 +57,7 @@ public class UpgradeManager : MonoBehaviour
         else
             buttonsText[7].text = string.Format("GroundMaxLV : {0:00}\n업그레이드 완료", UpgradeSO.GroundMaxLV + 1);
 
-
+        AchievementManager.UpdateUpgradeAchievement(UpgradeSO.UpgradeLVSum());
     }
     public void Upgrade_Button(int input)
     {
