@@ -50,6 +50,9 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
 
     //슬라임 문자열 데이터
     public static GameObject SlimeUI;
+
+    //방금 삭제되었는지 확인
+    public bool isdeleted = false;
     public void Start()
     {
         //슬라임 객체 값 초기화
@@ -227,6 +230,14 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
         return false;
     }
 
+    public void SlimeEvolutiontrigger()
+    {
+        isdeleted = true;
+        Destroy(gameObject);
+        SlimeManager.RemoveEmpty();
+        SlimeManager.AddSlime(SO.SlimeId + 1);
+        
+    }
     public int SlimeMaxLVinfo()
     {
         return SO.MaxLevel;

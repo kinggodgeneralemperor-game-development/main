@@ -6,12 +6,10 @@ using UnityEngine;
 public class BuySlime : MonoBehaviour
 {
     public GameObject errorUI;
-    public GameObject SlimeManager;
     private int price = 10;
 
     public void Start()
     {
-        SlimeManager = GameObject.Find("SlimeManager");
     }
 
     //구매 버튼 클릭 시, 골드 체크 및 슬라임 소환
@@ -25,7 +23,7 @@ public class BuySlime : MonoBehaviour
         else 
         {
             //슬라임 소환 및 골드 소모
-            if(SlimeManager.GetComponent<SlimeManager>().AddSlime())
+            if(SlimeManager.AddSlime())
                 GoldManager.UpdateGold(price * -1);
 
         }

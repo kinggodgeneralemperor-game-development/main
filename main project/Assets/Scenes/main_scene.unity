@@ -8343,7 +8343,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   errorUI: {fileID: 962020640}
-  SlimeManager: {fileID: 0}
 --- !u!4 &686598422
 Transform:
   m_ObjectHideFlags: 0
@@ -10688,17 +10687,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80770f28741f2f941aa716cfc42e0ab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpgradeSO: {fileID: 11400000, guid: 80859de34ac69ee4c9ea1e4cf4ba7e9a, type: 2}
-  slimeData: {fileID: 11400000, guid: 66b4a094dddbea24284ca4ae199ca7ba, type: 2}
-  slimeprefab: {fileID: 58290695446820827, guid: 9b926b6a996e3f34eb47e9a7be6a17a2, type: 3}
-  info: {fileID: 2009400219}
-  slimeSOList:
+  _UpgradeSO: {fileID: 11400000, guid: 80859de34ac69ee4c9ea1e4cf4ba7e9a, type: 2}
+  _info: {fileID: 2009400219}
+  _slimeprefab: {fileID: 58290695446820827, guid: 9b926b6a996e3f34eb47e9a7be6a17a2, type: 3}
+  _SlimeSOList:
   - {fileID: 11400000, guid: 66b4a094dddbea24284ca4ae199ca7ba, type: 2}
   - {fileID: 11400000, guid: 28d385982073d5c4faa88145d09b60df, type: 2}
   - {fileID: 11400000, guid: 2de19e17ce04e2c4d983af3a3d92007f, type: 2}
   - {fileID: 11400000, guid: daa7cb8944d6e4b4fa3bea89d36ab235, type: 2}
   - {fileID: 11400000, guid: 48857a11d48c2bc47a247ae46b601c84, type: 2}
   - {fileID: 11400000, guid: 76d7850ef1b4adf489c7dd5cde5e4f95, type: 2}
+  slimeData: {fileID: 11400000, guid: 66b4a094dddbea24284ca4ae199ca7ba, type: 2}
 --- !u!4 &887285032
 Transform:
   m_ObjectHideFlags: 0

@@ -68,9 +68,7 @@ public class SlimeInfo : BasicUI
         SlimeSO temp = slimemanager.SelectedSlime(gObjS.SO.SlimeId + 1);
         if (temp)
         {
-            Destroy(gObj);
-            SlimeManager.RemoveEmpty();
-            slimemanager.AddSlime(temp);
+            gObjS.SlimeEvolutiontrigger();
         }
     }
     public void Editname(string input)
