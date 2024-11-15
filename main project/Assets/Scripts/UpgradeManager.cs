@@ -53,7 +53,7 @@ public class UpgradeManager : MonoBehaviour
             buttonsText[6].text = string.Format("{0} : {1:00}\n업그레이드 완료", UpgradeInfoSO.wetGroundText, UpgradeSO.WetGroundLV + 1);
 
         if (UpgradeSO.GroundMaxLV < UpgradeInfoSO.GroundMax.Count - 1)
-            buttonsText[7].text = string.Format("{0} : {1:00}\nGroundMaxLV Price : {2:000}", UpgradeInfoSO.groundMaxText, UpgradeSO.GroundMaxLV + 1, UpgradeSO.GroundMaxPrice);
+            buttonsText[7].text = string.Format("{0} : {1:00}\n업그레이드 가격 : {2:000}", UpgradeInfoSO.groundMaxText, UpgradeSO.GroundMaxLV + 1, UpgradeSO.GroundMaxPrice);
         else
             buttonsText[7].text = string.Format("{0} : {1:00}\n업그레이드 완료", UpgradeInfoSO.groundMaxText, UpgradeSO.GroundMaxLV + 1);
 
