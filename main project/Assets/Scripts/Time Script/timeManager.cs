@@ -12,8 +12,8 @@ public class timeManager : MonoBehaviour
     void Update()                               //현재 상태를 업데이트 함
     {
         maintimeText.text = string.Format("{0:00} : {1:00}", timedata.Gethour(),timedata.Getminute());
-        currentGoldText.text = string.Format("Gold : {0:00}", GoldManager.GetcurrentGold());
-        currentSlimeText.text = string.Format("Slime : {0:0} / {1:0}", SlimeManager.GetSlimeNumber(), UpgradeSO.SlimeMax);
+        currentGoldText.text = string.Format("골드 : {0:00}", GoldManager.GetcurrentGold());
+        currentSlimeText.text = string.Format("현재 슬라임 : {0:0} / {1:0}", SlimeManager.GetSlimeNumber(), UpgradeSO.SlimeMax);
     }
 
 }

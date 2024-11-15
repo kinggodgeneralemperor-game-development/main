@@ -12,7 +12,6 @@ public class UpgradeInfoSO : ScriptableObject
     [SerializeField] private List<int> hungerCooldownPrice;
     [SerializeField] private List<int> slimeMaxExp;
     [SerializeField] private List<int> slimeMaxExpPrice;
-    [SerializeField] private int autoFeedingPrice;
     [SerializeField] private int autoCorePrice;
     public List<int> SlimeMax { get { return slimeMax; } }
     public List<int> SlimeMaxPrice { get { return slimeMaxPrice; } }
@@ -20,7 +19,6 @@ public class UpgradeInfoSO : ScriptableObject
     public List<int> HungerCooldownPrice { get { return hungerCooldownPrice; } }
     public List<int> SlimeMaxExp { get { return slimeMaxExp; } }
     public List<int> SlimeMaxExpPrice { get { return slimeMaxExpPrice; } }
-    public int AutoFeedingPrice { get { return autoFeedingPrice; } }
     public int AutoCorePrice { get { return autoCorePrice; } }
 
     public int SlimeUpgradeLVSum()
@@ -57,4 +55,15 @@ public class UpgradeInfoSO : ScriptableObject
     {
         return SlimeUpgradeLVSum() + FarmUpgradeLVSum();
     }
+
+    public string slimeMaxText;
+    public string hungerCooldownText;
+    public string slimeMaxExpText;
+    public string autoCoreText;
+
+    public string betterCropsText;
+    public string fasterCropsGrowText;
+    public string wetGroundText;
+    public string groundMaxText;
+    public string autoHarvestText;
 }

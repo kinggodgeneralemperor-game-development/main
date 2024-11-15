@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class AchievementManager : MonoBehaviour
 {
     [SerializeField] UpgradeInfoSO UpgradeInfoSO;
+    [SerializeField] GameObject EndingButton;
     public static UpgradeInfoSO upgradeInfoSO;
     public Slider AchievementSlider;
     public static float UpgradeAchievement = 0;
@@ -37,6 +38,10 @@ public class AchievementManager : MonoBehaviour
     public void UpdateAchievementSlider()
     {
         AchievementSlider.value = (UpgradeAchievement + InfoAchievement) * (float)100 / (float)2;
+        if (AchievementSlider.value >= 100)
+            EndingButton.SetActive(true);
+        else
+            EndingButton.SetActive(false);
         Debug.Log(UpgradeAchievement);
     }
 

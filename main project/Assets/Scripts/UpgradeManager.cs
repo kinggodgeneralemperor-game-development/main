@@ -18,44 +18,44 @@ public class UpgradeManager : MonoBehaviour
     void Upgrade_OnChanged(object sender, EventArgs eventArgs)
     {
         if (UpgradeSO.SlimeMaxLV < UpgradeInfoSO.SlimeMax.Count - 1)
-            buttonsText[0].text = string.Format("SlimeMaxLV : {0:00}\nUpgrade Price : {1:000}", UpgradeSO.SlimeMaxLV + 1, UpgradeSO.SlimeMaxPrice);
+            buttonsText[0].text = string.Format("{0} : {1:00}\n업그레이드 가격 : {2:000}",UpgradeInfoSO.slimeMaxText, UpgradeSO.SlimeMaxLV + 1, UpgradeSO.SlimeMaxPrice);
         else
-            buttonsText[0].text = string.Format("SlimeMaxLV : {0:00}\n업그레이드 완료", UpgradeSO.SlimeMaxLV + 1);
+            buttonsText[0].text = string.Format("{0} : {0:00}\n업그레이드 완료", UpgradeInfoSO.slimeMaxText, UpgradeSO.SlimeMaxLV + 1);
 
         if (UpgradeSO.HungerCooldownLV < UpgradeInfoSO.HungerCooldown.Count - 1)
-            buttonsText[1].text = string.Format("HungerCoolDownLV : {0:00}\nHungerCoolDown Price : {1:000}", UpgradeSO.HungerCooldownLV + 1, UpgradeSO.HungerCooldownPrice);
+            buttonsText[1].text = string.Format("{0} : {1:00}\n업그레이드 가격 : {2:000}", UpgradeInfoSO.hungerCooldownText, UpgradeSO.HungerCooldownLV + 1, UpgradeSO.HungerCooldownPrice);
         else
-            buttonsText[1].text = string.Format("HungerCoolDownLV : {0:00}\n업그레이드 완료", UpgradeSO.HungerCooldownLV + 1);
+            buttonsText[1].text = string.Format("{0} : {1:00}\n업그레이드 완료", UpgradeInfoSO.hungerCooldownText, UpgradeSO.HungerCooldownLV + 1);
 
         if (UpgradeSO.SlimeMaxExpLV < UpgradeInfoSO.SlimeMaxExp.Count - 1)
-            buttonsText[2].text = string.Format("SlimeMaxExpLV : {0:00}\nSlimeMaxExp Price : {1:000}", UpgradeSO.SlimeMaxExpLV + 1, UpgradeSO.SlimeMaxExpPrice);
+            buttonsText[2].text = string.Format("{0} : {1:00}\n업그레이드 가격 : {2:000}", UpgradeInfoSO.slimeMaxExpText, UpgradeSO.SlimeMaxExpLV + 1, UpgradeSO.SlimeMaxExpPrice);
         else
-            buttonsText[2].text = string.Format("SlimeMaxExpLV : {0:00}\n업그레이드 완료", UpgradeSO.SlimeMaxExpLV + 1);
+            buttonsText[2].text = string.Format("{0} : {1:00}\n업그레이드 완료", UpgradeInfoSO.slimeMaxExpText,UpgradeSO.SlimeMaxExpLV + 1);
 
         if (UpgradeSO.AutoCore)
-            buttonsText[3].text = string.Format("AutoCore enabled");
+            buttonsText[3].text = string.Format("{0} 작동 중", UpgradeInfoSO.autoCoreText);
         else
-            buttonsText[3].text = string.Format("AutoCore disabled\nAutoCore Price : {0:000}", UpgradeInfoSO.AutoCorePrice);
+            buttonsText[3].text = string.Format("{0} 구매\n업그레이드 가격 : {1:000}", UpgradeInfoSO.autoCoreText, UpgradeInfoSO.AutoCorePrice);
 
         if (UpgradeSO.BetterCropsLV < UpgradeInfoSO.BetterCrops.Count - 1)
-            buttonsText[4].text = string.Format("BetterCropsLV : {0:00}\nBetterCropsLV Price : {1:000}", UpgradeSO.BetterCropsLV + 1, UpgradeSO.BetterCropsPrice);
+            buttonsText[4].text = string.Format("{0} : {1:00}\n업그레이드 가격 : {2:000}", UpgradeInfoSO.betterCropsText, UpgradeSO.BetterCropsLV + 1, UpgradeSO.BetterCropsPrice);
         else
-            buttonsText[4].text = string.Format("BetterCropsLV : {0:00}\n업그레이드 완료", UpgradeSO.BetterCropsLV + 1);
+            buttonsText[4].text = string.Format("{0} : {1:00}\n업그레이드 완료", UpgradeInfoSO.betterCropsText, UpgradeSO.BetterCropsLV + 1);
 
         if (UpgradeSO.FasterCropsGrowLV < UpgradeInfoSO.FasterCropsGrow.Count - 1)
-            buttonsText[5].text = string.Format("FasterCropsGrowLV : {0:00}\nFasterCropsGrowLV  Price : {1:000}", UpgradeSO.FasterCropsGrowLV + 1, UpgradeSO.FasterCropsGrowPrice);
+            buttonsText[5].text = string.Format("{0} : {1:00}\n업그레이드 가격 : {2:000}", UpgradeInfoSO.fasterCropsGrowText, UpgradeSO.FasterCropsGrowLV + 1, UpgradeSO.FasterCropsGrowPrice);
         else
-            buttonsText[5].text = string.Format("FasterCropsGrowLV  : {0:00}\n업그레이드 완료", UpgradeSO.FasterCropsGrowLV + 1);
+            buttonsText[5].text = string.Format("{0} : {1:00}\n업그레이드 완료", UpgradeInfoSO.fasterCropsGrowText, UpgradeSO.FasterCropsGrowLV + 1);
 
         if (UpgradeSO.WetGroundLV < UpgradeInfoSO.WetGround.Count - 1)
-            buttonsText[6].text = string.Format("WetGroundLV : {0:00}\nWetGroundLV Price : {1:000}", UpgradeSO.WetGroundLV + 1, UpgradeSO.WetGroundPrice);
+            buttonsText[6].text = string.Format("{0} : {1:00}\n업그레이드 가격 : {2:000}", UpgradeInfoSO.wetGroundText, UpgradeSO.WetGroundLV + 1, UpgradeSO.WetGroundPrice);
         else
-            buttonsText[6].text = string.Format("WetGroundLV : {0:00}\n업그레이드 완료", UpgradeSO.WetGroundLV + 1);
+            buttonsText[6].text = string.Format("{0} : {1:00}\n업그레이드 완료", UpgradeInfoSO.wetGroundText, UpgradeSO.WetGroundLV + 1);
 
         if (UpgradeSO.GroundMaxLV < UpgradeInfoSO.GroundMax.Count - 1)
-            buttonsText[7].text = string.Format("GroundMaxLV : {0:00}\nGroundMaxLV Price : {1:000}", UpgradeSO.GroundMaxLV + 1, UpgradeSO.GroundMaxPrice);
+            buttonsText[7].text = string.Format("{0} : {1:00}\nGroundMaxLV Price : {2:000}", UpgradeInfoSO.groundMaxText, UpgradeSO.GroundMaxLV + 1, UpgradeSO.GroundMaxPrice);
         else
-            buttonsText[7].text = string.Format("GroundMaxLV : {0:00}\n업그레이드 완료", UpgradeSO.GroundMaxLV + 1);
+            buttonsText[7].text = string.Format("{0} : {1:00}\n업그레이드 완료", UpgradeInfoSO.groundMaxText, UpgradeSO.GroundMaxLV + 1);
 
         AchievementManager.UpdateUpgradeAchievement(UpgradeSO.UpgradeLVSum());
     }

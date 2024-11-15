@@ -16,7 +16,6 @@ MonoBehaviour:
   slimeMaxLV: 0
   hungerCooldownLV: 0
   slimeMaxExpLV: 0
-  autoFeeding: 0
   autoCore: 0
   betterCropsLV: 0
   fasterCropsGrowLV: 0
