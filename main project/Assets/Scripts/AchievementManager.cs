@@ -41,15 +41,17 @@ public class AchievementManager : MonoBehaviour
         if (AchievementSlider.value >= 100)
             EndingButton.SetActive(true);
         else
-            EndingButton.SetActive(false);
+            //EndingButton.SetActive(false);
         Debug.Log(UpgradeAchievement);
+        EndingButton.SetActive(true);
     }
 
     public void PayAchievement()
     {
-        if (GoldManager.CheckGold(1000000))
+        if (GoldManager.CheckGold(1))
         {
-            GoldManager.UpdateGold(-1000000);
+            GoldManager.UpdateGold(-1);
+            SceneChange.ChangeEndingScene();
             //¿£µù
         }
         else

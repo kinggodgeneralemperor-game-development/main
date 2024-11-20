@@ -18,8 +18,12 @@ public class SceneChange : MonoBehaviour
     }
 
 
-    public void ChangeMainScene()
+    public static void ChangeMainScene()
     {
         SceneManager.LoadScene("main_scene");
+    }
+    public static void ChangeEndingScene()
+    {
+        SceneManager.LoadScene("EndingScene");
     }
 }
