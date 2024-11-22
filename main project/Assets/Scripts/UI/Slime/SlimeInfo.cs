@@ -15,7 +15,7 @@ public class SlimeInfo : BasicUI
     private Image HungrySlider;
     private TextMeshProUGUI HungryText;
     private Button EvolutionButton;
-
+    private TextMeshProUGUI EatenFoods;
     private GameObject gObj;
     private basicslime gObjS;
     private SlimeManager slimemanager;
@@ -35,7 +35,9 @@ public class SlimeInfo : BasicUI
         HungrySlider = transform.GetChild(6).gameObject.GetComponent<Image>();
         HungryText = transform.GetChild(7).gameObject.GetComponent<TextMeshProUGUI>();
         EvolutionButton = transform.GetChild(8).gameObject.GetComponent<Button>();
+        EatenFoods = transform.GetChild(9).gameObject.GetComponent<TextMeshProUGUI>();
         EvolutionButton.gameObject.SetActive(false);
+       
         gameObject.SetActive(false);
     }
     private void Update()
@@ -53,6 +55,17 @@ public class SlimeInfo : BasicUI
                 ExpText.text = string.Format("Max Level");
             HungrySlider.fillAmount = gObjS.hungryslider.fillAmount;
             HungryText.text = string.Format("Hungry : {0:0.0} / {1:0}", gObjS.hungryindex, gObjS.MaxHungry);
+
+            string EatenFoodstemp = string.Format("[");
+            for (int i = 0; i < 6; i++) {
+                EatenFoodstemp += string.Format("{0}", gObjS.Eats[i]);
+                if (i != 5)
+                    EatenFoodstemp += string.Format(" / ");
+                else
+                    EatenFoodstemp += string.Format("]");
+            
+            }
+            EatenFoods.text = EatenFoodstemp;
             EvolutionButton.gameObject.SetActive(gObjS.SlimeEvolutionable());
         }
         else

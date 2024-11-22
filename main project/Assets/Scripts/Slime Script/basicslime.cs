@@ -26,7 +26,7 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
     public RectTransform hungrysliderRectTransform;
     public RectTransform slimeCanvasRectTransform;
     public Canvas slimeCanvas;
-    private int[] Eats = new int[6];
+    public int[] Eats = new int[6];
 
     //UpgradeSO의 값과 곱해서 최대값을 계산
     private const int MaxHungryValue = 100;
@@ -100,6 +100,8 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
 
     void Update()
     {
+
+        Debug.Log(Eats[0] + " " + Eats[1] + " " + Eats[2] + " " + Eats[3] + " " + Eats[4] + " " + Eats[5]);
         MaxHungry = MaxHungryValue;
         MaxExp = MaxExpValue * UpgradeSO.SlimeMaxExp;
 
@@ -223,19 +225,30 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
 
     public bool SlimeEvolutionable()
     {
-
-        if (level >= SO.MaxLevel)
+        if (level >= SO.MaxLevel && SO.SlimeId == 0)
             return true;
+        else
+            return false;
 
-        return false;
     }
 
     public void SlimeEvolutiontrigger()
     {
+
+        int index = 0;
+        int eatenfood = 0;
+        for (int i = 0; i < 6; i++)
+        {
+            if (Eats[i] > eatenfood)
+            {
+                eatenfood = Eats[i];
+                index = i;
+            }
+        }
         isdeleted = true;
         Destroy(gameObject);
         SlimeManager.RemoveEmpty();
-        SlimeManager.AddSlime(SO.SlimeId + 1);
+        SlimeManager.AddSlime(index + 1);
         
     }
     public int SlimeMaxLVinfo()
