@@ -14,7 +14,8 @@ public class FieldInfo : MonoBehaviour
     {
         NotPlanted,
         IsPlanted,
-        FullGrown
+        FullGrown,
+        CannotPlant
     }
 
     private static float[] SeedTime = new float[5];
@@ -36,7 +37,7 @@ public class FieldInfo : MonoBehaviour
     static float moreFaster = 1.0f;
     float maxTime;
     float plantTime = 0;
-    Grown IsPlanted = Grown.NotPlanted;
+    Grown IsPlanted = Grown.CannotPlant;
 
     public void UpdateWater()
     {
@@ -52,8 +53,21 @@ public class FieldInfo : MonoBehaviour
         additionPlant = UpgradeSO.BetterCrops * 0.01f;
     }
 
+    public void BuyField()
+    {
+        plantImage.color = new Color(1, 1, 1, 0);
+        plantName.text = string.Format("빈 밭");
+        IsPlanted = Grown.NotPlanted;
+    }
+
     void Awake()
     {
+        plantName = transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
+        timer = transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>();
+        plantImage = transform.GetChild(0).gameObject.GetComponent<Image>();
+        fieldImage = gameObject.GetComponent<Image>();
+        trans = transform.GetChild(0).gameObject.GetComponent<RectTransform>();
+
         SeedTime[0] = 5;
         SeedTime[1] = 10;
         SeedTime[2] = 15;
@@ -63,7 +77,7 @@ public class FieldInfo : MonoBehaviour
         SeedNames[0] = "수박 자라는 중.";
         SeedNames[1] = "토마토 자라는 중.";
         SeedNames[2] = "콩 자라는 중.";
-        SeedNames[3] = "temp 자라는 중."; // 미정인 음식
+        SeedNames[3] = "당근 자라는 중.";
         SeedNames[4] = "감자 자라는 중.";
 
         heightWidth[0] = 19.0f/15.0f;
@@ -108,7 +122,7 @@ public class FieldInfo : MonoBehaviour
             //UI 살짝 어둡게 변경 : 물 먹은 땅 느낌으로
             fieldImage.color = new Color(0.8f, 0.8f, 0.8f);
         }
-        else //FullGrown
+        else if(IsPlanted == Grown.FullGrown)
         {
             //채집
             IsPlanted = Grown.NotPlanted;
