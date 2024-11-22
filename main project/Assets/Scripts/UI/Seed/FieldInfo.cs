@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -31,6 +32,8 @@ public class FieldInfo : MonoBehaviour
 
     float watertime;
     static float watering = 3;
+    static float additionPlant = 0.0f;
+    static float moreFaster = 1.0f;
     float maxTime;
     float plantTime = 0;
     Grown IsPlanted = Grown.NotPlanted;
@@ -38,6 +41,15 @@ public class FieldInfo : MonoBehaviour
     public void UpdateWater()
     {
         watering = UpgradeSO.WetGround;
+    }
+    public void UpdateFaster()
+    {
+        moreFaster = (100 - UpgradeSO.FasterCropsGrow) * 0.01f;
+    }
+
+    public void UpdateAdditionPlant()
+    {
+        additionPlant = UpgradeSO.BetterCrops * 0.01f;
     }
 
     void Awake()
@@ -72,7 +84,7 @@ public class FieldInfo : MonoBehaviour
     public void StartTimer(int seedNum)
     {
         IsPlanted = Grown.IsPlanted;
-        maxTime = SeedTime[seedNum];
+        maxTime = SeedTime[seedNum] * moreFaster;
         seedNumber = seedNum;
 
         //UI 변경 (이름 변경 추가)
@@ -96,7 +108,7 @@ public class FieldInfo : MonoBehaviour
             //UI 살짝 어둡게 변경 : 물 먹은 땅 느낌으로
             fieldImage.color = new Color(0.8f, 0.8f, 0.8f);
         }
-        else 
+        else //FullGrown
         {
             //채집
             IsPlanted = Grown.NotPlanted;
@@ -104,6 +116,11 @@ public class FieldInfo : MonoBehaviour
             plantImage.color = new Color(1, 1, 1, 0);
             MainStorage.GetComponent<DrawChange>().getFood(seedNumber);
 
+            //랜덤 함수 써서 추가 수확물
+            if (UnityEngine.Random.value <= additionPlant)
+            {
+                MainStorage.GetComponent<DrawChange>().getFood(seedNumber);
+            }
             info.IsCollected(seedNumber+6);
         }
     }
