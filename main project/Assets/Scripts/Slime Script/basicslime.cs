@@ -53,6 +53,9 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
 
     //방금 삭제되었는지 확인
     public bool isdeleted = false;
+
+    public AudioSource audioSource;
+
     public void Start()
     {
         //슬라임 객체 값 초기화
@@ -94,6 +97,8 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
         //RectTransform 수정
         levelsliderRectTransform.anchoredPosition = new Vector2(0, 0);
         hungrysliderRectTransform.anchoredPosition = new Vector2(0, 0);
+
+        audioSource = gameObject.GetComponent<AudioSource>();
 
         move();
     }
@@ -169,6 +174,7 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
             ItemDrag input = eventData.pointerDrag.GetComponent<ItemDrag>();
             if (hungryindex < MaxHungry - input.hungryPoint)
             {
+                audioSource.Play();
                 hungryindex += input.hungryPoint;
                 Debug.Log("냠");
                 if (!(level >= SO.MaxLevel))

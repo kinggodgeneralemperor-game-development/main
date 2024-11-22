@@ -128,6 +128,7 @@ MonoBehaviour:
   coreSpriteRenderer: {fileID: 0}
   temp: {fileID: 0}
   SO: {fileID: 0}
+  CoreLV: 0
   AutoCore: 0
 --- !u!212 &3093754134410814128
 SpriteRenderer:
