@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EndingScript : MonoBehaviour
+public class OpeningScript : MonoBehaviour
 {
     [SerializeField] GameObject[] list;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(triggerEndingsquare());
+        StartCoroutine(triggerOpeningsquare());
     }
 
     // Update is called once per frame
@@ -18,7 +18,7 @@ public class EndingScript : MonoBehaviour
         
     }
 
-    IEnumerator triggerEndingsquare()
+    IEnumerator triggerOpeningsquare()
     {
 
         for(int i = 0; i < 4; i++)
@@ -30,7 +30,8 @@ public class EndingScript : MonoBehaviour
                 list[i].GetComponent<Image>().color = temp;
                 yield return new WaitForSeconds(0.1f);
             }
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2.5f);
         }
+        SceneChange.ChangeMainScene();
     }
 }
