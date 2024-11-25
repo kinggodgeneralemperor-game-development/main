@@ -10,6 +10,7 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] UpgradeInfoSO UpgradeInfoSO;
     [SerializeField] List<TextMeshProUGUI> buttonsText;
     [SerializeField] GameObject errorUI;
+
     private void Start()
     {
         Upgrade_OnChanged(null, null);
@@ -18,17 +19,17 @@ public class UpgradeManager : MonoBehaviour
     void Upgrade_OnChanged(object sender, EventArgs eventArgs)
     {
         if (UpgradeSO.SlimeMaxLV < UpgradeInfoSO.SlimeMax.Count - 1)
-            buttonsText[0].text = string.Format("{0} : {1:00}\n업그레이드 가격 : {2:000}",UpgradeInfoSO.slimeMaxText, UpgradeSO.SlimeMaxLV + 1, UpgradeSO.SlimeMaxPrice);
+            buttonsText[0].text = string.Format("{0} : {1:00}\n업그레이드 가격 : {2:000}\n\n\n수용 가능 슬라임 수 :\n{3}마리 > {4}마리",UpgradeInfoSO.slimeMaxText, UpgradeSO.SlimeMaxLV + 1, UpgradeSO.SlimeMaxPrice, UpgradeInfoSO.SlimeMax[UpgradeSO.SlimeMaxLV], UpgradeInfoSO.SlimeMax[UpgradeSO.SlimeMaxLV + 1]);
         else
             buttonsText[0].text = string.Format("{0} : {0:00}\n업그레이드 완료", UpgradeInfoSO.slimeMaxText, UpgradeSO.SlimeMaxLV + 1);
 
         if (UpgradeSO.HungerCooldownLV < UpgradeInfoSO.HungerCooldown.Count - 1)
-            buttonsText[1].text = string.Format("{0} : {1:00}\n업그레이드 가격 : {2:000}", UpgradeInfoSO.hungerCooldownText, UpgradeSO.HungerCooldownLV + 1, UpgradeSO.HungerCooldownPrice);
+            buttonsText[1].text = string.Format("{0} : {1:00}\n업그레이드 가격 : {2:000}\n\n\n슬라임의 먹이 쿨타임 감소 :\n{3}초 > {4}초", UpgradeInfoSO.hungerCooldownText, UpgradeSO.HungerCooldownLV + 1, UpgradeSO.HungerCooldownPrice, UpgradeInfoSO.HungerCooldown[UpgradeSO.HungerCooldownLV], UpgradeInfoSO.HungerCooldown[UpgradeSO.HungerCooldownLV + 1]);
         else
             buttonsText[1].text = string.Format("{0} : {1:00}\n업그레이드 완료", UpgradeInfoSO.hungerCooldownText, UpgradeSO.HungerCooldownLV + 1);
 
         if (UpgradeSO.SlimeMaxExpLV < UpgradeInfoSO.SlimeMaxExp.Count - 1)
-            buttonsText[2].text = string.Format("{0} : {1:00}\n업그레이드 가격 : {2:000}", UpgradeInfoSO.slimeMaxExpText, UpgradeSO.SlimeMaxExpLV + 1, UpgradeSO.SlimeMaxExpPrice);
+            buttonsText[2].text = string.Format("{0} : {1:00}\n업그레이드 가격 : {2:000}\n\n\n레벨 업까지의 필요 먹이 :\n{3}개 > {4}개", UpgradeInfoSO.slimeMaxExpText, UpgradeSO.SlimeMaxExpLV + 1, UpgradeSO.SlimeMaxExpPrice, UpgradeInfoSO.SlimeMaxExp[UpgradeSO.SlimeMaxExpLV] / 2, UpgradeInfoSO.SlimeMaxExp[UpgradeSO.SlimeMaxExpLV + 1] / 2);
         else
             buttonsText[2].text = string.Format("{0} : {1:00}\n업그레이드 완료", UpgradeInfoSO.slimeMaxExpText,UpgradeSO.SlimeMaxExpLV + 1);
 
@@ -38,22 +39,24 @@ public class UpgradeManager : MonoBehaviour
             buttonsText[3].text = string.Format("{0} 구매\n업그레이드 가격 : {1:000}", UpgradeInfoSO.autoCoreText, UpgradeInfoSO.AutoCorePrice);
 
         if (UpgradeSO.BetterCropsLV < UpgradeInfoSO.BetterCrops.Count - 1)
-            buttonsText[4].text = string.Format("{0} : {1:00}\n업그레이드 가격 : {2:000}", UpgradeInfoSO.betterCropsText, UpgradeSO.BetterCropsLV + 1, UpgradeSO.BetterCropsPrice);
+            buttonsText[4].text = string.Format("{0} : {1:00}\n업그레이드 가격 : {2:000}\n\n\n두 배 수확 확률 : {3}% > {4}%", UpgradeInfoSO.betterCropsText, UpgradeSO.BetterCropsLV + 1, UpgradeSO.BetterCropsPrice, UpgradeInfoSO.BetterCrops[UpgradeSO.BetterCropsLV], UpgradeInfoSO.BetterCrops[UpgradeSO.BetterCropsLV + 1]);
         else
             buttonsText[4].text = string.Format("{0} : {1:00}\n업그레이드 완료", UpgradeInfoSO.betterCropsText, UpgradeSO.BetterCropsLV + 1);
 
         if (UpgradeSO.FasterCropsGrowLV < UpgradeInfoSO.FasterCropsGrow.Count - 1)
-            buttonsText[5].text = string.Format("{0} : {1:00}\n업그레이드 가격 : {2:000}", UpgradeInfoSO.fasterCropsGrowText, UpgradeSO.FasterCropsGrowLV + 1, UpgradeSO.FasterCropsGrowPrice);
+            buttonsText[5].text = string.Format("{0} : {1:00}\n업그레이드 가격 : {2:000}\n\n\n성장 속도 증가:{3}% > {4}%", UpgradeInfoSO.fasterCropsGrowText, UpgradeSO.FasterCropsGrowLV + 1, UpgradeSO.FasterCropsGrowPrice, UpgradeInfoSO.FasterCropsGrow[UpgradeSO.FasterCropsGrowLV], UpgradeInfoSO.FasterCropsGrow[UpgradeSO.FasterCropsGrowLV + 1]);
         else
             buttonsText[5].text = string.Format("{0} : {1:00}\n업그레이드 완료", UpgradeInfoSO.fasterCropsGrowText, UpgradeSO.FasterCropsGrowLV + 1);
 
-        if (UpgradeSO.WetGroundLV < UpgradeInfoSO.WetGround.Count - 1)
-            buttonsText[6].text = string.Format("{0} : {1:00}\n업그레이드 가격 : {2:000}", UpgradeInfoSO.wetGroundText, UpgradeSO.WetGroundLV + 1, UpgradeSO.WetGroundPrice);
+        if (UpgradeSO.WetGroundLV < UpgradeInfoSO.WetGround.Count - 2)
+            buttonsText[6].text = string.Format("{0} : {1:00}\n업그레이드 가격 : {2:000}\n\n\n밭이 마르기까지의 시간:\n{3}초 > {4}초", UpgradeInfoSO.wetGroundText, UpgradeSO.WetGroundLV + 1, UpgradeSO.WetGroundPrice, UpgradeInfoSO.WetGround[UpgradeSO.WetGroundLV], UpgradeInfoSO.WetGround[UpgradeSO.WetGroundLV + 1]);
+        else if (UpgradeSO.WetGroundLV < UpgradeInfoSO.WetGround.Count - 1)
+            buttonsText[6].text = string.Format("{0} : {1:00}\n업그레이드 가격 : {2:000}\n\n\n마르지 않는 밭 활성화", UpgradeInfoSO.wetGroundText, UpgradeSO.WetGroundLV + 1, UpgradeSO.WetGroundPrice);
         else
             buttonsText[6].text = string.Format("{0} : {1:00}\n업그레이드 완료", UpgradeInfoSO.wetGroundText, UpgradeSO.WetGroundLV + 1);
 
         if (UpgradeSO.GroundMaxLV < UpgradeInfoSO.GroundMax.Count - 1)
-            buttonsText[7].text = string.Format("{0} : {1:00}\n업그레이드 가격 : {2:000}", UpgradeInfoSO.groundMaxText, UpgradeSO.GroundMaxLV + 1, UpgradeSO.GroundMaxPrice);
+            buttonsText[7].text = string.Format("{0} : {1:00}\n업그레이드 가격 : {2:000}\n\n\n밭의 수 : {3} > {4}", UpgradeInfoSO.groundMaxText, UpgradeSO.GroundMaxLV + 1, UpgradeSO.GroundMaxPrice, UpgradeInfoSO.GroundMax[UpgradeSO.GroundMaxLV], UpgradeInfoSO.GroundMax[UpgradeSO.GroundMaxLV + 1]);
         else
             buttonsText[7].text = string.Format("{0} : {1:00}\n업그레이드 완료", UpgradeInfoSO.groundMaxText, UpgradeSO.GroundMaxLV + 1);
 
