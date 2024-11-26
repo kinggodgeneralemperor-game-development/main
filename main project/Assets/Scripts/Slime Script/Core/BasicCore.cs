@@ -11,7 +11,7 @@ public class BasicCore : MonoBehaviour, IPointerClickHandler
     public SpriteRenderer coreSpriteRenderer;
     public Sprite temp;
     public CoreSO SO;
-    public int CoreLV;
+    public int CoreLV = 1;
     public bool AutoCore;
     public void Start()
     {
@@ -22,7 +22,6 @@ public class BasicCore : MonoBehaviour, IPointerClickHandler
         coreSpriteRenderer.sprite = SO.CoreSprite;
         SO.OnChanged += Slime_Core_OnChanged;
         AutoCore = upgradeSO.AutoCore;
-        CoreLV = 1;
         if (AutoCore)
             Invoke("CoreClick", 2);
         Invoke("RemoveGravity", 1);

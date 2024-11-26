@@ -115,7 +115,7 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
         //¹è°íÇÄ ¿ä¼Ò ÄðÅ¸ÀÓ
         if (hungryindex > 0)
         {
-            hungryindex -= (Time.deltaTime * UpgradeSO.HungerCooldown);
+            hungryindex -= Time.deltaTime;
         }
         if(exp >= MaxExp)
         {
