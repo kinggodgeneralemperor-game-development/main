@@ -21,7 +21,7 @@ MonoBehaviour:
   slimeId: 3
   mass: 1
   drag: 4
-  maxHungry: 70
+  maxHungry: 5
   scale: 25
   sprites:
   - {fileID: -1622228565, guid: 15c97ebbeddb2394a905a836d757043d, type: 3}

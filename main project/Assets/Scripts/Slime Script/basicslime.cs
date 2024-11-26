@@ -29,7 +29,6 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
     public int[] Eats = new int[6];
 
     //UpgradeSO의 값과 곱해서 최대값을 계산
-    private const int MaxHungryValue = 100;
     private const int MaxExpValue = 10;
     public int MaxHungry;
     public int MaxExp;
@@ -100,6 +99,7 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
 
         audioSource = gameObject.GetComponent<AudioSource>();
 
+        MaxHungry = UpgradeSO.HungerCooldown;
         move();
     }
 
@@ -107,7 +107,6 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
     {
 
         Debug.Log(Eats[0] + " " + Eats[1] + " " + Eats[2] + " " + Eats[3] + " " + Eats[4] + " " + Eats[5]);
-        MaxHungry = MaxHungryValue;
         MaxExp = MaxExpValue * UpgradeSO.SlimeMaxExp;
 
         hungryslider.fillAmount = hungryindex / MaxHungry;
@@ -172,10 +171,11 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
         if (SO.SlimeId == 0 || ItemDrag.getFoodNum() + 1 == SO.SlimeId)
         {
             ItemDrag input = eventData.pointerDrag.GetComponent<ItemDrag>();
-            if (hungryindex < MaxHungry - input.hungryPoint)
+            Debug.Log(hungryindex);
+            if (hungryindex <= 0)
             {
                 audioSource.Play();
-                hungryindex += input.hungryPoint;
+                hungryindex = MaxHungry;
                 Debug.Log("냠");
                 if (!(level >= SO.MaxLevel))
                     exp += input.expPoint;
@@ -220,6 +220,7 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
     private void Slime_OnChanged(object sender, EventArgs eventArgs)
     {
         gameObject.transform.localScale = new Vector2(SO.Scale, SO.Scale);
+        MaxHungry = UpgradeSO.HungerCooldown;
         if (hungryindex >= MaxHungry) hungryindex = MaxHungry;
     }
 
