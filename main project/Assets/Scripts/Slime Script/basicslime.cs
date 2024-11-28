@@ -175,6 +175,7 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
             if (hungryindex <= 0)
             {
                 audioSource.Play();
+                triggerEffect(SO.EatEffect);
                 hungryindex = MaxHungry;
                 Debug.Log("³È");
                 if (!(level >= SO.MaxLevel))
@@ -266,5 +267,14 @@ public class basicslime : MonoBehaviour, IDropHandler, IPointerClickHandler
     {
         SO.OnChanged -= Slime_OnChanged;
         UpgradeSO.OnChanged -= Slime_OnChanged;
+    }
+
+    private void triggerEffect(GameObject obj)
+    {
+        Debug.Log(obj.name);
+        Instantiate(obj, new Vector2(UnityEngine.Random.Range(0.3f, 0.7f), UnityEngine.Random.Range(0.3f, 0.7f)), Quaternion.identity, gameObject.transform);
+        Instantiate(obj, new Vector2(UnityEngine.Random.Range(-0.3f, -0.7f), UnityEngine.Random.Range(0.3f, 0.7f)), Quaternion.identity, gameObject.transform);
+        Instantiate(obj, new Vector2(UnityEngine.Random.Range(0.3f, 0.7f), UnityEngine.Random.Range(-0.3f, -0.7f)), Quaternion.identity, gameObject.transform);
+        Instantiate(obj, new Vector2(UnityEngine.Random.Range(-0.3f,-0.7f), UnityEngine.Random.Range(-0.3f, -0.7f)), Quaternion.identity, gameObject.transform);
     }
 }

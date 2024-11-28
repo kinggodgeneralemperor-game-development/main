@@ -31,6 +31,7 @@ MonoBehaviour:
   - {fileID: 1874723744, guid: 11ad43de35cb67246972e96651931243, type: 3}
   - {fileID: -144955014, guid: 11ad43de35cb67246972e96651931243, type: 3}
   angleIndex: 30
+  eatEffect: {fileID: 8456963258520991064, guid: 926df8fd2d62def41aaf18d4cb1259e4, type: 3}
   core: {fileID: 11400000, guid: d716cc0e17ecbc0488611a102614a85a, type: 2}
   basicCore: {fileID: 760934102823754159, guid: d44cf2d252e66264993fa9a4d3d5e129, type: 3}
   hungryslider: {fileID: 2451313328542178044, guid: 7a3bbff2c53b43d4f972953e4e52fa53, type: 3}

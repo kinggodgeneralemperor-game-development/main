@@ -27,7 +27,7 @@ public class SlimeSO : ScriptableObject
     //애니메이션
     [SerializeField] private Sprite[] sprites;
     [SerializeField] private float angleIndex;
-
+    [SerializeField] private GameObject eatEffect;
     //슬라임 코어
     [SerializeField] private CoreSO core;
     [SerializeField] private GameObject basicCore;
@@ -65,6 +65,7 @@ public class SlimeSO : ScriptableObject
     public Sprite[] Sprites { get { return sprites; } }
     public float AngleIndex { get { return angleIndex; } }
 
+    public GameObject EatEffect { get { return eatEffect; } }
     //슬라임 코어
     public CoreSO Core { get { return core; } }
     public GameObject BasicCore { get { return basicCore; } }
