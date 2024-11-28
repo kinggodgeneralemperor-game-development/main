@@ -11,10 +11,13 @@ public class ModifyInfo : MonoBehaviour
     public Info info;
     public Image image;
     public TextMeshProUGUI text;
+    RectTransform rect;
     string[] strings = new string[11];
-
+    float[] heightWidth = new float[5];
     private void Start()
     {
+        rect = transform.GetChild(0).gameObject.GetComponent<RectTransform>();
+
         strings[0] = "어디에서나 보이는 흔한 슬라임입니다. 음식을 섭취하면서 해당 음식 속에 함유된 속성을 흡수합니다. 충분히 많은 양의 속성을 흡수하면 가장 적합한 성질로 한 단계 진화하는 특징이 있습니다. 어떠한 음식이든 잘 먹습니다.";
         strings[1] = "물로 이루어진 슬라임입니다. 깨끗한 생수를 주는 슬라임입니다. 레벨이 높은 슬라임의 코어에는 불순물이 전혀 없기에 보통은 공업용이나 종교용으로 사용되곤 합니다. 수박이나 복숭아 같이 수분이 많이 함유된 음식을 선호합니다.\r\n";
         strings[2] = "불처럼 붉게 변한 슬라임입니다. 내부에 마나를 모으는 기관이 존재하며, 이러한 마나는 배출물에 섞여 나옵니다. 레벨이 높을수록 음식의 흡수율이 높아지며 더욱 순수한 마나결정을 코어로 배출합니다. 토마토 외의 음식은 먹지 못합니다.\r\n";
@@ -26,6 +29,12 @@ public class ModifyInfo : MonoBehaviour
         strings[8] = "콩이다.";
         strings[9] = "당근은 상당히 단단한 채소이다. 극동 지방에서는 종종 이 채소를 가지고 집을 짓기도 한다는 말이 돈다. 해당 채소가 땅 깊숙한 곳의 철의 기운을 흡수해 머금고 있다는 낭설이 돈다.";
         strings[10] = "감자는 귀족의 전유물이며, 극소수의 상위 계층만이 먹을 수 있는 사치품이다. 이를 재배하는 것은 국가의 관리하에 가능하기에 암암리에 거래되는 종자를 구하는 것 외에는 기르는 방법이 없다고 한다.";
+
+        heightWidth[0] = 19.0f / 15.0f;
+        heightWidth[1] = 8.0f / 11.0f;
+        heightWidth[2] = 17.0f / 19.0f;
+        heightWidth[3] = 11.0f / 12.0f;
+        heightWidth[4] = 1;
     }
 
     public void ShowInfo(int InfoNum)
@@ -33,6 +42,15 @@ public class ModifyInfo : MonoBehaviour
         if(info.CheckCollected(InfoNum))
         {
             image.color = new Color(1, 1, 1, 1);
+
+            if(InfoNum > 5)
+            {
+                rect.sizeDelta = new Vector2(153, 153.0f * heightWidth[InfoNum - 6]);
+            }
+            else
+            {
+                rect.sizeDelta = new Vector2(153, 107);
+            }
 
             text.text = strings[InfoNum];
             image.sprite = sprite[InfoNum];
