@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class FieldInfo : MonoBehaviour
 {
     [SerializeField] UpgradeSO UpgradeSO;
-
+    [SerializeField] GameObject GrownPlantPrefab;
     public enum Grown
     {
         NotPlanted,
@@ -126,13 +126,19 @@ public class FieldInfo : MonoBehaviour
         {
             //Ã¤Áý
             IsPlanted = Grown.NotPlanted;
+            Image tempplantImage = plantImage;
             plantName.text = string.Format("ºó ¹ç");
             plantImage.color = new Color(1, 1, 1, 0);
             MainStorage.GetComponent<DrawChange>().getFood(seedNumber);
 
+            GrownPlantPrefab.GetComponent<SpriteRenderer>().sprite = tempplantImage.sprite;
+            UnityEngine.Random.InitState((int)(Time.time));
+            Instantiate(GrownPlantPrefab, gameObject.transform.position, Quaternion.identity);
             //·£´ý ÇÔ¼ö ½á¼­ Ãß°¡ ¼öÈ®¹°
             if (UnityEngine.Random.value <= additionPlant)
             {
+                UnityEngine.Random.InitState((int)(Time.time));
+                Instantiate(GrownPlantPrefab, gameObject.transform.position, Quaternion.identity).GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 100));
                 MainStorage.GetComponent<DrawChange>().getFood(seedNumber);
             }
             info.IsCollected(seedNumber+6);

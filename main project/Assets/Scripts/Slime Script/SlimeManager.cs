@@ -32,7 +32,7 @@ public class SlimeManager : MonoBehaviour
     public static SlimeSO RandomSlime()
     {
         //int randomslime = Random.Range(0, SlimeSOList.Count);
-        int randomslime = 1;
+        int randomslime = 0;
         return SlimeSOList[randomslime];
     }
     public static bool AddSlime()

@@ -16033,6 +16033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpgradeSO: {fileID: 11400000, guid: 80859de34ac69ee4c9ea1e4cf4ba7e9a, type: 2}
+  GrownPlantPrefab: {fileID: 5061459324686755005, guid: fc320ad4c90f08d4daf8e10a6b96bab6, type: 3}
   sprites:
   - {fileID: 21300000, guid: 72c1ca6382f90e94c89bf7eeb577d5ad, type: 3}
   - {fileID: 21300000, guid: 2cf2e6ff02c0fa34eb0fc18ed4bd77f7, type: 3}
@@ -16348,6 +16349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpgradeSO: {fileID: 11400000, guid: 80859de34ac69ee4c9ea1e4cf4ba7e9a, type: 2}
+  GrownPlantPrefab: {fileID: 5061459324686755005, guid: fc320ad4c90f08d4daf8e10a6b96bab6, type: 3}
   sprites:
   - {fileID: 21300000, guid: 72c1ca6382f90e94c89bf7eeb577d5ad, type: 3}
   - {fileID: 21300000, guid: 2cf2e6ff02c0fa34eb0fc18ed4bd77f7, type: 3}
@@ -20159,6 +20161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpgradeSO: {fileID: 11400000, guid: 80859de34ac69ee4c9ea1e4cf4ba7e9a, type: 2}
+  GrownPlantPrefab: {fileID: 5061459324686755005, guid: fc320ad4c90f08d4daf8e10a6b96bab6, type: 3}
   sprites:
   - {fileID: 21300000, guid: 72c1ca6382f90e94c89bf7eeb577d5ad, type: 3}
   - {fileID: 21300000, guid: 2cf2e6ff02c0fa34eb0fc18ed4bd77f7, type: 3}
@@ -21938,6 +21941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpgradeSO: {fileID: 11400000, guid: 80859de34ac69ee4c9ea1e4cf4ba7e9a, type: 2}
+  GrownPlantPrefab: {fileID: 5061459324686755005, guid: fc320ad4c90f08d4daf8e10a6b96bab6, type: 3}
   sprites:
   - {fileID: 21300000, guid: 72c1ca6382f90e94c89bf7eeb577d5ad, type: 3}
   - {fileID: 21300000, guid: 2cf2e6ff02c0fa34eb0fc18ed4bd77f7, type: 3}
@@ -24854,6 +24858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpgradeSO: {fileID: 11400000, guid: 80859de34ac69ee4c9ea1e4cf4ba7e9a, type: 2}
+  GrownPlantPrefab: {fileID: 5061459324686755005, guid: fc320ad4c90f08d4daf8e10a6b96bab6, type: 3}
   sprites:
   - {fileID: 21300000, guid: 72c1ca6382f90e94c89bf7eeb577d5ad, type: 3}
   - {fileID: 21300000, guid: 2cf2e6ff02c0fa34eb0fc18ed4bd77f7, type: 3}
@@ -25114,6 +25119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpgradeSO: {fileID: 11400000, guid: 80859de34ac69ee4c9ea1e4cf4ba7e9a, type: 2}
+  GrownPlantPrefab: {fileID: 5061459324686755005, guid: fc320ad4c90f08d4daf8e10a6b96bab6, type: 3}
   sprites:
   - {fileID: 21300000, guid: 72c1ca6382f90e94c89bf7eeb577d5ad, type: 3}
   - {fileID: 21300000, guid: 2cf2e6ff02c0fa34eb0fc18ed4bd77f7, type: 3}
